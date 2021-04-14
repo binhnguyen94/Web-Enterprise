@@ -8,16 +8,16 @@
 			if($kq){
 				$_SESSION['masinhvien']=$kq['masinhvien'];
 				$_SESSION['hoten_sv']=$kq['hoten'];
-				vetrangtruoc();
+				previousPage();
 			} 
 			else{
-				thongbao("Đăng nhập thất bại, vui lòng kiểm tra lại tên đăng nhập và mật khẩu!");
-				vetrangtruoc();
+				notice("Đăng nhập thất bại, vui lòng kiểm tra lại tên đăng nhập và mật khẩu!");
+				previousPage();
 			}
 		}
 		else{
-			thongbao("Không được bỏ trống tên đăng nhập hoặc mật khẩu!");
-			vetrangtruoc();
+			notice("Không được bỏ trống tên đăng nhập hoặc mật khẩu!");
+			previousPage();
 		}
 	}
 ?>

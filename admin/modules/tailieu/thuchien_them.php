@@ -13,11 +13,11 @@
 		mysql_query($sql);
 		$_SESSION['id_nhomtailieu']=$id_nhomtailieu;
 		$_SESSION['id_chuyennganh']=$id_chuyennganh;
-		thongbao("Thêm thông tin thành công");
-		chuyentrang("?act=tailieu&mod=them");
+		notice("Thêm thông tin thành công");
+		redirect("?act=tailieu&mod=them");
 	}
 	else{
-		thongbao("Không được bỏ trống dữ liệu (*)!");
-		vetrangtruoc();
+		notice("Không được bỏ trống dữ liệu (*)!");
+		previousPage();
 	}
 ?>

@@ -6,11 +6,11 @@
 	$arr=mysql_fetch_array($qr);
 
 	if($arr){
-		thongbao("Phải xóa lớp học của khóa học này trước vì lý do lỗi ràng buộc dữ liệu!");
+		notice("Phải xóa lớp học của khóa học này trước vì lý do lỗi ràng buộc dữ liệu!");
 	}
 	else{
 		$sql1="delete from tbl_hedaotao where id=$id";
 		mysql_query($sql1);
 	}
-	chuyentrang("?act=hedaotao");
+	redirect("?act=hedaotao");
 ?>

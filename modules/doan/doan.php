@@ -25,15 +25,15 @@
 
 					$sql="Insert into tbl_doan value(NULL, $id_nhomdoan, $id_chuyennganh, '$masinhvien', '$tendoan', '$ngayupload', '$filedoan', 'Chưa duyệt', 0, '$tomtat')";
 					mysql_query($sql);
-					chuyentrang("?act=doan");
+					redirect("?act=doan");
 				 }else{
-				 	thongbao("Bạn cần đồng ý điều khoản và điều kiện");
-					vetrangtruoc();
+				 	notice("Bạn cần đồng ý điều khoản và điều kiện");
+					previousPage();
 				 }
 				}
 				else{
-					thongbao("Không được bỏ trống dữ liệu (*)!");
-					vetrangtruoc();
+					notice("Không được bỏ trống dữ liệu (*)!");
+					previousPage();
 				}
 			}
 		?>
@@ -66,7 +66,7 @@
 		</table>
 		</ul>
 	</div>
-	<?php phantrang("select count(*) from tbl_doan where masinhvien='$_SESSION[masinhvien]'");?>
+	<?php pageDivider("select count(*) from tbl_doan where masinhvien='$_SESSION[masinhvien]'");?>
 	<div class="list_newP">
 		<form method="post" action="" enctype="multipart/form-data">
 		<table>

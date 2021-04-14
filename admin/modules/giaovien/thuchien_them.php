@@ -12,11 +12,11 @@
 		$sql="Insert into tbl_giaovien value('$tendangnhap', '$matkhau', $id_chuyennganh, '$hoten', '$ngaysinh', '$dienthoai', '$email', '$quyensudung')";
 		mysql_query($sql);
 		$_SESSION['id_chuyennganh']=$id_chuyennganh;
-		thongbao("Thêm thông tin thành công");
-		chuyentrang("?act=giaovien&mod=them");
+		notice("Thêm thông tin thành công");
+		redirect("?act=giaovien&mod=them");
 	}
 	else{
-		thongbao("Không được bỏ trống dữ liệu (*)!");
-		vetrangtruoc();
+		notice("Không được bỏ trống dữ liệu (*)!");
+		previousPage();
 	}
 ?>

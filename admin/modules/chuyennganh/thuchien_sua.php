@@ -4,10 +4,10 @@
 	if($ten!=""){
 		$sql="update tbl_chuyennganh set ten='$ten' where id=$id";
 		mysql_query($sql);
-		chuyentrang("?act=chuyennganh");
+		redirect("?act=chuyennganh");
 	}
 	else{
-		thongbao("Không được bỏ trống dữ liệu (*)!");
-		vetrangtruoc();
+		notice("Không được bỏ trống dữ liệu (*)!");
+		previousPage();
 	}
 ?>

@@ -17,10 +17,10 @@
 			$sql="update tbl_giaovien set id_chuyennganh=$id_chuyennganh, hoten='$hoten', ngaysinh='$ngaysinh', dienthoai='$dienthoai', email='$email', quyensudung='$quyensudung' where magiaovien='$id'";
 		}
 		mysql_query($sql);
-		chuyentrang("?act=giaovien");
+		redirect("?act=giaovien");
 	}
 	else{
-		thongbao("Không được bỏ trống dữ liệu (*)!");
-		vetrangtruoc();
+		notice("Không được bỏ trống dữ liệu (*)!");
+		previousPage();
 	}
 ?>

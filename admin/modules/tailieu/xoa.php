@@ -6,5 +6,5 @@
 	unlink("../upload/".$tv2['hinhanh']);
 	$sql="delete from tbl_tailieu where id=$id";
 	mysql_query($sql);
-	chuyentrang("?act=tailieu");
+	redirect("?act=tailieu");
 ?>

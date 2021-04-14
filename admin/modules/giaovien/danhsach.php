@@ -29,9 +29,9 @@ while ($kq=mysql_fetch_array($qr)) {
 		echo "<td>".$kq['dienthoai']."</td>";
 		echo "<td>".$kq['email']."</td>";
 		echo "<td>".$kq['quyensudung']."</td>";
-		echo "<td>[<a href='?act=giaovien&mod=sua&id=$kq[magiaovien]'>Sửa</a>] | [<a href='?act=giaovien&mod=xoa&id=$kq[magiaovien]' onclick='return checkXoa()'>Xóa</a>]</td>";
+		echo "<td>[<a href='?act=giaovien&mod=sua&id=$kq[magiaovien]'>Sửa</a>] | [<a href='?act=giaovien&mod=xoa&id=$kq[magiaovien]' onclick='return checkDel()'>Xóa</a>]</td>";
 	echo "</tr>";
 }
 ?>
 </table>
-<?php phantrang("select count(*) from tbl_giaovien"); ?>
+<?php pageDivider("select count(*) from tbl_giaovien"); ?>

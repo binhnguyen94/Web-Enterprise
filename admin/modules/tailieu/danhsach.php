@@ -25,9 +25,9 @@ while ($kq=mysql_fetch_array($qr)) {
 		echo "<td>".$kq['magiaovien']."</td>";
 		echo "<td>".$kq['tentailieu']."</td>";
 		echo "<td><img width='40px' height='40px' src='../upload/".$kq['hinhanh']."'></td>";
-		echo "<td>[<a href='?act=tailieu&mod=sua&id=$kq[id]'>Sửa</a>] | [<a href='?act=tailieu&mod=xoa&id=$kq[id]' onclick='return checkXoa()'>Xóa</a>]</td>";
+		echo "<td>[<a href='?act=tailieu&mod=sua&id=$kq[id]'>Sửa</a>] | [<a href='?act=tailieu&mod=xoa&id=$kq[id]' onclick='return checkDel()'>Xóa</a>]</td>";
 	echo "</tr>";
 }
 ?>
 </table>
-<?php phantrang("select count(*) from tbl_tailieu where magiaovien='$magiaovien'"); ?>
+<?php pageDivider("select count(*) from tbl_tailieu where magiaovien='$magiaovien'"); ?>

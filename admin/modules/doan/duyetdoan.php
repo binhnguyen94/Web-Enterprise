@@ -4,6 +4,6 @@
 	$giaovien=$_SESSION['tendangnhap'];
 	$sql="update tbl_doan set trangthai='$trangthai', magiaovien='$giaovien' where id=$id";
 	mysql_query($sql);
-	thongbao("Duyệt tài liệu thành công!");
-	vetrangtruoc();
+	notice("Duyệt tài liệu thành công!");
+	previousPage();
 ?>

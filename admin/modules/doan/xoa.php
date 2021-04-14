@@ -6,5 +6,5 @@
 	unlink("../upload/".$tv2['filedoan']);
 	$sql="delete from tbl_doan where id=$id";
 	mysql_query($sql);
-	chuyentrang("?act=doan");
+	redirect("?act=doan");
 ?>

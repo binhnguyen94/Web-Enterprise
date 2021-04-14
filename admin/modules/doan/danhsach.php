@@ -103,14 +103,14 @@ while ($kq=mysql_fetch_array($qr)) {
 			echo "</td>";
 			echo "<td>[<a href='?act=doan&mod=duyetdoan&id=$kq[id]&trangthai=Đã duyệt'>Duyệt tài liệu</a>] | [<a href='?act=doan&mod=duyetdoan&id=$kq[id]&trangthai=Không được duyệt'>Không duyệt</a>] | ";
 		}
-			echo "[<a href='?act=doan&mod=xoa&id=$kq[id]' onclick='return checkXoa()'>Xóa</a>] | [<a href='?act=doan&mod=xemtomtat&id=$kq[id]'>Xem tóm tắt</a>]</td>";
+			echo "[<a href='?act=doan&mod=xoa&id=$kq[id]' onclick='return checkDel()'>Xóa</a>] | [<a href='?act=doan&mod=xemtomtat&id=$kq[id]'>Xem tóm tắt</a>]</td>";
 			echo "<td><input name='danhgia".$kq[id]."' class='text-form'></td>";
 	echo "</tr>";
 }
 ?>
 </table>
 <?php 
-	if($_GET['id_lophoc']) phantrang("select count(*) from tbl_doan where $morong masinhvien in (select masinhvien from tbl_sinhvien where id_lophoc=$_GET[id_lophoc])"); 
-	elseif($_GET['name']) phantrang("select count(*) from tbl_doan where $morong tendoan like'%$_GET[name]%'"); 
-	else phantrang("select count(*) from tbl_doan DA $morong1");
+	if($_GET['id_lophoc']) pageDivider("select count(*) from tbl_doan where $morong masinhvien in (select masinhvien from tbl_sinhvien where id_lophoc=$_GET[id_lophoc])"); 
+	elseif($_GET['name']) pageDivider("select count(*) from tbl_doan where $morong tendoan like'%$_GET[name]%'"); 
+	else pageDivider("select count(*) from tbl_doan DA $morong1");
 ?>

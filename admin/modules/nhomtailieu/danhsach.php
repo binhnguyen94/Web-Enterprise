@@ -17,7 +17,7 @@ while ($kq=mysql_fetch_array($qr)) {
 	echo "<tr>";
 		echo "<td>".$i."</td>";
 		echo "<td>".$kq['ten']."</td>";
-		echo "<td>[<a href='?act=nhomtailieu&mod=sua&id=$kq[id]'>Sửa</a>] | [<a href='?act=nhomtailieu&mod=xoa&id=$kq[id]' onclick='return checkXoa()'>Xóa</a>]</td>";
+		echo "<td>[<a href='?act=nhomtailieu&mod=sua&id=$kq[id]'>Sửa</a>] | [<a href='?act=nhomtailieu&mod=xoa&id=$kq[id]' onclick='return checkDel()'>Xóa</a>]</td>";
 	echo "</tr>";
 }
 ?>

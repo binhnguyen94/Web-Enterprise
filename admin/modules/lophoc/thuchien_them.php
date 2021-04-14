@@ -7,11 +7,11 @@
 		mysql_query($sql);
 		$_SESSION['id_hedaotao']=$id_hedaotao;
 		$_SESSION['id_khoahoc']=$id_khoahoc;
-		thongbao("Thêm thông tin thành công");
-		chuyentrang("?act=lophoc&mod=them");
+		notice("Thêm thông tin thành công");
+		redirect("?act=lophoc&mod=them");
 	}
 	else{
-		thongbao("Không được bỏ trống dữ liệu (*)!");
-		vetrangtruoc();
+		notice("Không được bỏ trống dữ liệu (*)!");
+		previousPage();
 	}
 ?>

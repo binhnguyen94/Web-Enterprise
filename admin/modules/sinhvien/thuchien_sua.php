@@ -16,10 +16,10 @@
 			$sql="update tbl_sinhvien set id_lophoc=$id_lophoc, hoten='$hoten', ngaysinh='$ngaysinh', dienthoai='$dienthoai', email='$email' where masinhvien='$id'";
 		}
 		mysql_query($sql);
-		chuyentrang("?act=sinhvien");
+		redirect("?act=sinhvien");
 	}
 	else{
-		thongbao("Không được bỏ trống dữ liệu (*)!");
-		vetrangtruoc();
+		notice("Không được bỏ trống dữ liệu (*)!");
+		previousPage();
 	}
 ?>

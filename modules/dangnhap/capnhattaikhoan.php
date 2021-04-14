@@ -11,9 +11,9 @@
 			mysql_query($tv);
 		}
 		else{
-			thongbao("Không được bổ trống dữ liệu (*)!");
+			notice("Không được bổ trống dữ liệu (*)!");
 		}
-		chuyentrang("?act=capnhattaikhoan");
+		redirect("?act=capnhattaikhoan");
 	}
 ?>
 <div class='new_detail'>

@@ -15,10 +15,10 @@
 		}
 		$sql="update tbl_tailieu set id_nhomtailieu=$id_nhomtailieu, id_chuyennganh=$id_chuyennganh, tentailieu='$tentailieu', hinhanh='$hinhanh', noidung='$noidung' where id=$id";
 		mysql_query($sql);
-		chuyentrang("?act=tailieu");
+		redirect("?act=tailieu");
 	}
 	else{
-		thongbao("Không được bỏ trống dữ liệu (*)!");
-		vetrangtruoc();
+		notice("Không được bỏ trống dữ liệu (*)!");
+		previousPage();
 	}
 ?>

@@ -26,5 +26,5 @@ echo "<div class='product'>";
 	}
 	echo "</ul>";
 echo "</div>";
-phantrang($phantrang);
+pageDivider($phantrang);
 ?>

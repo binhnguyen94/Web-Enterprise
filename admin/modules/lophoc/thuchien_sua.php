@@ -6,10 +6,10 @@
 	if($id_hedaotao!="" & $id_khoahoc!="" & $ten!=""){
 		$sql="update tbl_lophoc set id_hedaotao=$id_hedaotao, id_khoahoc=$id_khoahoc, ten='$ten' where id=$id";
 		mysql_query($sql);
-		chuyentrang("?act=lophoc");
+		redirect("?act=lophoc");
 	}
 	else{
-		thongbao("Không được bỏ trống dữ liệu (*)!");
-		vetrangtruoc();
+		notice("Không được bỏ trống dữ liệu (*)!");
+		previousPage();
 	}
 ?>

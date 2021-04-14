@@ -57,7 +57,7 @@ if( $_FILES['file']['tmp_name']){
       }
     }
   }
-  chuyentrang("?act=sinhvien&mod=them");
+  redirect("?act=sinhvien&mod=them");
 }
 else{
 	$id_lophocs=(int)$_POST['id_lophocs'];
@@ -72,12 +72,12 @@ else{
 		$sql="Insert into tbl_sinhvien value('$tendangnhaps', '$matkhaus', $id_lophocs, '$hotens', '$ngaysinhs', '$dienthoais', '$emails')";
 		mysql_query($sql);
 		$_SESSION['id_lophoc']=$id_lophocs;
-		thongbao("Thêm thông tin thành công");
-		chuyentrang("?act=sinhvien&mod=them");
+		notice("Thêm thông tin thành công");
+		redirect("?act=sinhvien&mod=them");
 	}
 	else{
-		thongbao("Không được bỏ trống dữ liệu (*)!");
-		vetrangtruoc();
+		notice("Không được bỏ trống dữ liệu (*)!");
+		previousPage();
 	}
 }
 ?>
