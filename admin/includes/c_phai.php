@@ -1,0 +1,155 @@
+<?php
+	switch ($_GET['act']) {
+		case 'login':
+			if($_GET['mod']=="doimatkhau"){
+				include("modules/login/doimatkhau.php");
+			}
+			elseif($_GET['mod']=="thoat"){
+				include("modules/login/dangxuat.php");
+			}
+			break;
+		case 'chuyennganh':
+			if($_GET['mod']=="them"){
+				include("modules/chuyennganh/them.php");
+			}
+			elseif($_GET['mod']=="sua"){
+				include("modules/chuyennganh/sua.php");
+			}
+			elseif($_GET['mod']=="xoa"){
+				include("modules/chuyennganh/xoa.php");
+			}
+			else{
+				include("modules/chuyennganh/danhsach.php");
+			}
+			break;
+		case 'doan':
+			if($_GET['mod']=="xoa"){
+				include("modules/doan/xoa.php");
+			}
+			elseif($_GET['mod']=="duyetdoan"){
+				include("modules/doan/duyetdoan.php");
+			}
+			elseif($_GET['mod']=="xemtomtat"){
+				include("modules/doan/xemtomtat.php");
+			}
+			else{
+				include("modules/doan/danhsach.php");
+			}
+			break;
+		case 'giaovien':
+			if($_GET['mod']=="them"){
+				include("modules/giaovien/them.php");
+			}
+			elseif($_GET['mod']=="sua"){
+				include("modules/giaovien/sua.php");
+			}
+			elseif($_GET['mod']=="xoa"){
+				include("modules/giaovien/xoa.php");
+			}
+			else{
+				include("modules/giaovien/danhsach.php");
+			}
+			break;
+		case 'hedaotao':
+			if($_GET['mod']=="them"){
+				include("modules/hedaotao/them.php");
+			}
+			elseif($_GET['mod']=="sua"){
+				include("modules/hedaotao/sua.php");
+			}
+			elseif($_GET['mod']=="xoa"){
+				include("modules/hedaotao/xoa.php");
+			}
+			else{	
+				include("modules/hedaotao/danhsach.php");
+			}
+			break;
+		case 'khoahoc':
+			if($_GET['mod']=="them"){
+				include("modules/khoahoc/them.php");
+			}
+			elseif($_GET['mod']=="sua"){
+				include("modules/khoahoc/sua.php");
+			}
+			elseif($_GET['mod']=="xoa"){
+				include("modules/khoahoc/xoa.php");
+			}
+			else{	
+				include("modules/khoahoc/danhsach.php");
+			}
+			break;
+		case 'lophoc':
+			if($_GET['mod']=="them"){
+				include("modules/lophoc/them.php");
+			}
+			elseif($_GET['mod']=="sua"){
+				include("modules/lophoc/sua.php");
+			}
+			elseif($_GET['mod']=="xoa"){
+				include("modules/lophoc/xoa.php");
+			}
+			else{	
+				include("modules/lophoc/danhsach.php");
+			}
+			break;
+		case 'nhomdoan':
+			if($_GET['mod']=="them"){
+				include("modules/nhomdoan/them.php");
+			}
+			elseif($_GET['mod']=="sua"){
+				include("modules/nhomdoan/sua.php");
+			}
+			elseif($_GET['mod']=="xoa"){
+				include("modules/nhomdoan/xoa.php");
+			}
+			else{	
+				include("modules/nhomdoan/danhsach.php");
+			}
+			break;
+		case 'sinhvien':
+			if($_GET['mod']=="them"){
+				include("modules/sinhvien/them.php");
+			}
+			elseif($_GET['mod']=="sua"){
+				include("modules/sinhvien/sua.php");
+			}
+			elseif($_GET['mod']=="xoa"){
+				include("modules/sinhvien/xoa.php");
+			}
+			else{	
+				include("modules/sinhvien/danhsach.php");
+			}
+			break;
+		case 'nhomtailieu':
+			if($_GET['mod']=="them"){
+				include("modules/nhomtailieu/them.php");
+			}
+			elseif($_GET['mod']=="sua"){
+				include("modules/nhomtailieu/sua.php");
+			}
+			elseif($_GET['mod']=="xoa"){
+				include("modules/nhomtailieu/xoa.php");
+			}
+			else{	
+				include("modules/nhomtailieu/danhsach.php");
+			}
+			break;
+		case 'tailieu':
+			if($_GET['mod']=="them"){
+				include("modules/tailieu/them.php");
+			}
+			elseif($_GET['mod']=="sua"){
+				include("modules/tailieu/sua.php");
+			}
+			elseif($_GET['mod']=="xoa"){
+				include("modules/tailieu/xoa.php");
+			}
+			else{	
+				include("modules/tailieu/danhsach.php");
+			}
+			break;
+		default:
+			echo "<br/><center><b>CHÀO MỪNG BẠN ĐÃ ĐĂNG NHẬP HỆ THỐNG</b></center></br>";
+			break;
+	}
+?>
