@@ -8,7 +8,7 @@
 <body onload="window.print();">
 <?php
 	ini_set('display_errors', 0);
-	include("../includes/ketnoi.php");
+	include("../includes/connection.php");
 	if($_GET['id_lophoc']){
 		$sql="select LH.ten as 'tenlophoc', SV.* from tbl_sinhvien SV inner join tbl_lophoc LH on SV.id_lophoc=LH.id where LH.id=$_GET[id_lophoc]";
 	}
