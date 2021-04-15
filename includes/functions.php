@@ -53,7 +53,7 @@
 		$r_tv_1=mysql_query($sql);
 		$r_tv_2=mysql_fetch_row($r_tv_1);
 		$so=$r_tv_2[0];
-		$st=ceil($so/$GLOBALS['sogioihan']);
+		$st=ceil($so/$GLOBALS['limit']);
 
 		echo "<div class='page'>";
 		if($_GET['page']!="")

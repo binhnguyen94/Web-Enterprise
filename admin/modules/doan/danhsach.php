@@ -52,6 +52,7 @@
 			?>
 		</select>
 		<a target="_blank" href="indanhsachda.php?<?php echo 'id_hedaotao='.$_GET[id_hedaotao].'&id_khoahoc='.$_GET[id_khoahoc].'&id_lophoc='.$_GET[id_lophoc]; ?>"><input type="button" value="In danh sách" class="button"></a>
+		<a target="_blank" href="downloadzip.php?<?php  echo 'id_hedaotao='.$_GET[id_hedaotao].'&id_khoahoc='.$_GET[id_khoahoc].'&id_lophoc='.$_GET[id_lophoc]; ?>"><input type="button" value="doanload zip" class="button"></a>
 	</form>
 </div>
 <table>
@@ -80,7 +81,7 @@ elseif($_GET['name']){
 else{
 	$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.hoten from tbl_doan DA inner join tbl_nhomdoan NDA on DA.id_nhomdoan=NDA.id inner join tbl_chuyennganh CN on DA.id_chuyennganh=CN.id inner join tbl_sinhvien SV on SV.masinhvien=DA.masinhvien $morong1 order by DA.id desc";
 }
-$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[sogioihan]");
+$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 $i=0;
 while ($kq=mysql_fetch_array($qr)) {
 	$i++;

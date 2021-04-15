@@ -74,7 +74,7 @@ elseif($_GET['name']){
 	$sql="select LH.ten as 'tenlophoc', SV.* from tbl_sinhvien SV inner join tbl_lophoc LH on SV.id_lophoc=LH.id where SV.hoten like'%$_GET[name]%' ";
 }
 else $sql="select LH.ten as 'tenlophoc', SV.* from tbl_sinhvien SV inner join tbl_lophoc LH on SV.id_lophoc=LH.id";
-$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[sogioihan]");
+$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 $i=0;
 while ($kq=mysql_fetch_array($qr)) {
 	$i++;

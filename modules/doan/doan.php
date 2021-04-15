@@ -49,7 +49,7 @@
 			</tr>
 		<?php
 			$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.* from tbl_doan DA inner join tbl_nhomdoan NDA on DA.id_nhomdoan=NDA.id inner join tbl_chuyennganh CN on DA.id_chuyennganh=CN.id where DA.masinhvien='$_SESSION[masinhvien]' order by DA.id desc ";
-			$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[sogioihan]");
+			$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 			$i=0;
 			while ($arr=mysql_fetch_array($qr)) {
 				$i++;

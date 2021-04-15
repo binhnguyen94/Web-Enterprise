@@ -16,7 +16,7 @@
 
 <?php
 $sql="select CN.ten as 'tenchuyennganh', GV.* from tbl_giaovien GV inner join tbl_chuyennganh CN on GV.id_chuyennganh=CN.id";
-$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[sogioihan]");
+$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 $i=0;
 while ($kq=mysql_fetch_array($qr)) {
 	$i++;

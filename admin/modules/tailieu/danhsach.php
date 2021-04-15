@@ -14,7 +14,7 @@
 <?php
 $magiaovien=$_SESSION['magiaovien'];
 $sql="select NTL.ten as 'tennhomtailieu', CN.ten as 'tenchuyennganh', TL.* from tbl_tailieu TL inner join tbl_nhomtailieu NTL on TL.id_nhomtailieu=NTL.id inner join tbl_chuyennganh CN on TL.id_chuyennganh=CN.id where TL.magiaovien='$magiaovien' order by TL.id desc";
-$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[sogioihan]");
+$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 $i=0;
 while ($kq=mysql_fetch_array($qr)) {
 	$i++;

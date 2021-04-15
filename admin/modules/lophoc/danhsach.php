@@ -12,7 +12,7 @@
 
 <?php
 $sql="select HDT.ten as 'tenhedaotao', KH.ten as 'tenkhoahoc', LH.* from tbl_hedaotao HDT inner join tbl_lophoc LH on HDT.id=LH.id_hedaotao inner join tbl_khoahoc KH on KH.id=LH.id_khoahoc order by LH.id desc";
-$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[sogioihan]");
+$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 $i=0;
 while ($kq=mysql_fetch_array($qr)) {
 	$i++;

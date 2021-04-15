@@ -15,7 +15,7 @@ echo "<div class='product'>";
 		$tv="select * from tbl_tailieu where tentailieu like '%$_GET[key]%' order by id desc";
 		$phantrang="select count(*) from tbl_tailieu where tentailieu like '%$_GET[key]%'";
 	}
-	$qr=mysql_query($tv." limit $GLOBALS[vtbd], $GLOBALS[sogioihan]");
+	$qr=mysql_query($tv." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 	while ($kq=mysql_fetch_array($qr)) {
 		echo "<li>";
 			echo "<a href='?act=chitiettailieu&id=$kq[id]'>
