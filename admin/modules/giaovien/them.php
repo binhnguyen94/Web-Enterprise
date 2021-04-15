@@ -45,7 +45,7 @@
 		<td>Quyền sử dụng(*) :</td>
 		<td>
 			<select name="quyensudung">
-				<option value='Giáo viên'>Điều phối viên tiếp thị</option>
+				<option value='Điều phối viên tiếp thị'>Điều phối viên tiếp thị</option>
 				<option value='Quản trị viên'>Quản trị viên</option>
 				<option value='Giám đốc tiếp thị'>Giám đốc tiếp thị</option>
 				

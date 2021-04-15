@@ -20,18 +20,18 @@
     width: 112px;
 "></a>
 	<div id="profile-links">
-		Xin chào, <a href="?act=login&mod=doimatkhau" title="Đổi mật khẩu"><?php echo $_SESSION['magiaovien']; ?></a> | <a href="?act=login&mod=thoat" title="Đăng xuất">Đăng xuất</a>
+		Hello, <a href="?act=login&mod=doimatkhau" title="Đổi mật khẩu"><?php echo $_SESSION['magiaovien']; ?></a> | <a href="?act=login&mod=thoat" title="Đăng xuất">Logout</a>
 	</div>
 	<ul id="main-nav">
 		<li>
 			<a href="index.php" class="nav-top-item no-submenu <?php echo check_current_act('');?>">
-				Trang chủ
+				Homepage
 			</a>       
 		</li>
 		<?php if($_SESSION['quyensudung']=="Quản trị viên"){ ?>
 		<li>
 			<a href="#" class="nav-top-item <?php echo check_current_act('khoahoc').check_current_act('hedaotao').check_current_act('chuyennganh').check_current_act('lophoc').check_current_act('giaovien').check_current_act('sinhvien'); ?>">
-			Quản lý chung</a>
+			General Management</a>
 			<ul>
 				<li><a class="<?php echo check_current_mod('khoahoc','them'); ?>" href="?act=khoahoc&mod=them">Thêm khóa học</a></li>
 				<li><a class="<?php echo check_current_mod('khoahoc',''); ?>" href="?act=khoahoc
@@ -56,7 +56,7 @@
 		<?php } ?>
 		<li>
 			<a href="#" class="nav-top-item <?php echo check_current_act('nhomdoan'). check_current_act('doan'); ?>">
-			Quản lý tài liệu</a>
+			Document Group Management</a>
 			<ul>
 				<?php if($_SESSION['quyensudung']=="Quản trị viên"){ ?>
 				<li><a class="<?php echo check_current_mod('nhomdoan','them'); ?>" href="?act=nhomdoan&mod=them">Thêm nhóm tài liệu</a></li>
@@ -69,9 +69,10 @@
 				</li>
 			</ul>
 		</li>
+		<?php if($_SESSION['quyensudung']=="Quản trị viên" || $_SESSION['quyensudung']=="Điều phối viên tiếp thị" ){ ?>
 		<li>
 			<a href="#" class="nav-top-item <?php echo check_current_act('nhomtailieu').check_current_act('tailieu'); ?>">
-			Quản lý tài liệu</a>
+			Document Source Management</a>
 			<ul>
 				<li><a class="<?php echo check_current_mod('nhomtailieu','them'); ?>" href="?act=nhomtailieu&mod=them">Thêm nhóm tài liệu</a></li>
 				<li><a class="<?php echo check_current_mod('nhomtailieu',''); ?>" href="?act=nhomtailieu
@@ -81,5 +82,6 @@
 				">Danh sách tài liệu</a></li>
 			</ul>
 		</li>
+		<?php } ?>
 	</ul>
 </div>

@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `tbl_giaovien` (
 
 INSERT INTO `tbl_giaovien` (`magiaovien`, `matkhau`, `id_chuyennganh`, `hoten`, `ngaysinh`, `dienthoai`, `email`, `quyensudung`) VALUES
 ('admin', 'e10adc3949ba59abbe56e057f20f883e', 1, 'Nguyễn Văn Duy', '1990-08-06', '0986333920', 'giaovien@gmail.com', 'Quản trị viên'),
-('giaovien', 'e10adc3949ba59abbe56e057f20f883e', 1, 'Nguyễn Đức Anh', '1989-08-07', '01234213622', 'ducanh@gmail.com', 'Giáo viên');
+('giaovien', 'e10adc3949ba59abbe56e057f20f883e', 1, 'Nguyễn Đức Anh', '1989-08-07', '01234213622', 'ducanh@gmail.com', 'Điều phối viên tiếp thị');
 
 -- --------------------------------------------------------
 

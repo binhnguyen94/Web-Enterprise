@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Quản lý tài liệu sinh viên</title>
+<title>Document Student Management</title>
 <link rel="stylesheet" href="teamplates/css/reset.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="teamplates/css/style.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="teamplates/css/invalid.css" type="text/css" media="screen" />	

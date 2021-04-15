@@ -4,7 +4,7 @@
 			if($_GET['mod']=="doimatkhau"){
 				include("modules/login/doimatkhau.php");
 			}
-			elseif($_GET['mod']=="thoat"){
+			else if($_GET['mod']=="thoat"){
 				include("modules/login/dangxuat.php");
 			}
 			break;
@@ -149,7 +149,7 @@
 			}
 			break;
 		default:
-			echo "<br/><center><b>CHÀO MỪNG BẠN ĐÃ ĐĂNG NHẬP HỆ THỐNG</b></center></br>";
+			echo "<br/><center><b>WELCOME YOU LOGIN TO THE SYSTEM</b></center></br>";
 			break;
 	}
 ?>
