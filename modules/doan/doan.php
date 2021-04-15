@@ -119,8 +119,18 @@
 			<tr>
 				<td></td>
 				<td>
+				<?php
+					if(array_key_exists('submit',$_POST)){
+						$msg= $masinhvien+"has submit file";
+						$sql = "SELECT email FROM tbl_admin where roles='Coordinator'";
+						$qr=mysql_query($sql);
+						foreach ($q as $qr){
+							mail($q,"New submition",$msg);
+						}
+					}
+				?>
 					<input type="hidden" name="thuchien_guidoan" value="thuchien_guidoan">
-					<input type="submit" value="Gửi tài liệu " class='button-form'>
+					<input type="submit" name='submit' value="Gửi tài liệu " class='button-form'>
 				</td>
 			</tr>
 		</table>
