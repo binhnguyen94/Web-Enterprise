@@ -6,10 +6,10 @@
 		<a href="#">Tài liệu theo chuyên ngành</a>
 		<ul>
 		<?php
-			$sql="select * from tbl_chuyennganh order by id desc";
+			$sql="select * from tbl_falcuty order by id desc";
 			$qr=mysql_query($sql);
 			while ($kq=mysql_fetch_array($qr)) {
-				echo "<li><a href='?act=tailieu&id_chuyennganh=$kq[id]'>$kq[ten]</a></li>";
+				echo "<li><a href='?act=tailieu&id_faculty=$kq[id]'>$kq[ten]</a></li>";
 			}
 		?>
 		</ul>

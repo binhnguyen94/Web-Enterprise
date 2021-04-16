@@ -59,12 +59,12 @@
    <Column ss:AutoFitWidth="0" ss:Width="131.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="73.5"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s63">
-    <Cell><Data ss:Type="String">masinhvien</Data></Cell>
-    <Cell><Data ss:Type="String">matkhau</Data></Cell>
-    <Cell><Data ss:Type="String">id_lophoc</Data></Cell>
-    <Cell><Data ss:Type="String">hoten</Data></Cell>
-    <Cell><Data ss:Type="String">ngaysinh</Data></Cell>
-    <Cell><Data ss:Type="String">dienthoai</Data></Cell>
+    <Cell><Data ss:Type="String">studentID</Data></Cell>
+    <Cell><Data ss:Type="String">password</Data></Cell>
+    <Cell><Data ss:Type="String">id_faculty</Data></Cell>
+    <Cell><Data ss:Type="String">fullname</Data></Cell>
+    <Cell><Data ss:Type="String">dob</Data></Cell>
+    <Cell><Data ss:Type="String">phoneNum</Data></Cell>
     <Cell><Data ss:Type="String">email</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

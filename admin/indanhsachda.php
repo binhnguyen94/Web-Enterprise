@@ -12,16 +12,16 @@
 <body onload="window.print();">
 <?php
 	$chuyenganh_gv=$_SESSION['chuyenganh_gv'];
-	if($_SESSION['quyensudung']=="Quản trị viên"){$morong=" "; $morong1="";}
-	else {$morong="DA.id_chuyennganh=$chuyenganh_gv and"; $morong1="where DA.id_chuyennganh=$chuyenganh_gv";}
-	if($_GET['id_lophoc']){
-		$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.hoten from tbl_doan DA inner join tbl_nhomdoan NDA on DA.id_nhomdoan=NDA.id inner join tbl_chuyennganh CN on DA.id_chuyennganh=CN.id inner join tbl_sinhvien SV on SV.masinhvien=DA.masinhvien where $morong DA.masinhvien in (select masinhvien from tbl_sinhvien where id_lophoc=$_GET[id_lophoc]) order by DA.id desc";
+	if($_SESSION['role']=="Quản trị viên"){$morong=" "; $morong1="";}
+	else {$morong="DA.id_faculty=$chuyenganh_gv and"; $morong1="where DA.id_faculty=$chuyenganh_gv";}
+	if($_GET['id_faculty']){
+		$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.fullname from tbl_document DA inner join tbl_groupDoc NDA on DA.groupDocID=NDA.id inner join tbl_falcuty CN on DA.id_faculty=CN.id inner join tbl_student SV on SV.studentID=DA.studentID where $morong DA.studentID in (select studentID from tbl_student where id_faculty=$_GET[id_faculty]) order by DA.id desc";
 	}
 	elseif($_GET['name']){
-		$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.hoten from tbl_doan DA inner join tbl_nhomdoan NDA on DA.id_nhomdoan=NDA.id inner join tbl_chuyennganh CN on DA.id_chuyennganh=CN.id inner join tbl_sinhvien SV on SV.masinhvien=DA.masinhvien where $morong DA.tendoan like '%$_GET[name]%' order by DA.id desc";
+		$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.fullname from tbl_document DA inner join tbl_groupDoc NDA on DA.groupDocID=NDA.id inner join tbl_falcuty CN on DA.id_faculty=CN.id inner join tbl_student SV on SV.studentID=DA.studentID where $morong DA.title like '%$_GET[name]%' order by DA.id desc";
 	}
 	else{
-		$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.hoten from tbl_doan DA inner join tbl_nhomdoan NDA on DA.id_nhomdoan=NDA.id inner join tbl_chuyennganh CN on DA.id_chuyennganh=CN.id inner join tbl_sinhvien SV on SV.masinhvien=DA.masinhvien $morong1 order by DA.id desc";
+		$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.fullname from tbl_document DA inner join tbl_groupDoc NDA on DA.groupDocID=NDA.id inner join tbl_falcuty CN on DA.id_faculty=CN.id inner join tbl_student SV on SV.studentID=DA.studentID $morong1 order by DA.id desc";
 	}
 	$qr=mysql_query($sql);
 ?>
@@ -52,11 +52,11 @@
 						<td style='text-align:center;'>$i</td>
 						<td>$kq[tennhomdoan]</td>
 						<td>$kq[tenchuyennganh]</td>
-						<td>$kq[masinhvien]</td>
-						<td>$kq[hoten]</td>
-						<td>$kq[tendoan]</td>
-						<td>$kq[ngayupload]</td>
-						<td>$kq[trangthai]</td>
+						<td>$kq[studentID]</td>
+						<td>$kq[fullname]</td>
+						<td>$kq[title]</td>
+						<td>$kq[uploadDate]</td>
+						<td>$kq[status]</td>
 					</tr>
 				";
 			}

@@ -1,5 +1,5 @@
 <?php
-	$sql="select * from tbl_nhomdoan where id=$_GET[id]";
+	$sql="select * from tbl_groupDoc where id=$_GET[id]";
 	$qr=mysql_query($sql);
 	$kq=mysql_fetch_array($qr);
 ?>

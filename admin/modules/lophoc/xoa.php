@@ -1,7 +1,7 @@
 <?php
 	$id=(int)$_GET['id'];
 
-	$sql="select id from tbl_sinhvien where id_lophoc=$id";
+	$sql="select id from tbl_student where id_faculty=$id";
 	$qr=mysql_query($sql);
 	$arr=mysql_fetch_array($qr);
 	if($arr){

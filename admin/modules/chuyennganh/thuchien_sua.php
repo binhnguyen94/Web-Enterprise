@@ -2,7 +2,7 @@
 	$id=(int)$_GET['id'];
 	$ten=trim($_POST['ten']);
 	if($ten!=""){
-		$sql="update tbl_chuyennganh set ten='$ten' where id=$id";
+		$sql="update tbl_falcuty set ten='$ten' where id=$id";
 		mysql_query($sql);
 		redirect("?act=chuyennganh");
 	}

@@ -1,17 +1,17 @@
 <?php
-	$id_chuyennganh=(int)$_POST['id_chuyennganh'];
+	$id_faculty=(int)$_POST['id_faculty'];
 	$tendangnhap=trim($_POST['tendangnhap']);
-	$matkhau=trim($_POST['matkhau']);
-	$hoten=trim($_POST['hoten']);
-	$ngaysinh=trim($_POST['ngaysinh']);
-	$dienthoai=trim($_POST['dienthoai']);
+	$password=trim($_POST['password']);
+	$fullname=trim($_POST['fullname']);
+	$dob=trim($_POST['dob']);
+	$phoneNum=trim($_POST['phoneNum']);
 	$email=trim($_POST['email']);
-	$quyensudung=trim($_POST['quyensudung']);
-	if($id_chuyennganh!="" & $tendangnhap!="" & $matkhau!="" & $hoten!="" & $ngaysinh!="" & $dienthoai!="" & $email!="" & $quyensudung!=""){
-		$matkhau=md5($matkhau);
-		$sql="Insert into tbl_giaovien value('$tendangnhap', '$matkhau', $id_chuyennganh, '$hoten', '$ngaysinh', '$dienthoai', '$email', '$quyensudung')";
+	$role=trim($_POST['role']);
+	if($id_faculty!="" & $tendangnhap!="" & $password!="" & $fullname!="" & $dob!="" & $phoneNum!="" & $email!="" & $role!=""){
+		$password=md5($password);
+		$sql="Insert into tbl_admin value('$tendangnhap', '$password', $id_faculty, '$fullname', '$dob', '$phoneNum', '$email', '$role')";
 		mysql_query($sql);
-		$_SESSION['id_chuyennganh']=$id_chuyennganh;
+		$_SESSION['id_faculty']=$id_faculty;
 		notice("Thêm thông tin thành công");
 		redirect("?act=giaovien&mod=them");
 	}

@@ -9,17 +9,17 @@
 			<form action="" method="post">
 				<p>
 					<label>Login ID</label>
-					<input class="text-input" name="tendangnhap" />
+					<input class="text-input" name="user" />
 				</p>
 				<div class="clear"></div>
 				<p>
-					<label>Password</label>
-					<input class="text-input" type="password" name="matkhau" />
+					<label>password</label>
+					<input class="text-input" type="password" name="password" />
 				</p>
 				<div class="clear"></div>
 				<p>
-					<input type="hidden" name="dangnhap" value="dangnhap"/>
-					<input class="button" type="submit" value=" Login " />
+					<input type="hidden" name="login" value="login"/>
+					<input class="button" type="submit" value="Login" />
 				</p>
 			</form>
 		</div>

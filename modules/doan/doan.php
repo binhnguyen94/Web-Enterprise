@@ -2,28 +2,28 @@
 	<h3><a href="index.php">Trang chủ</a><span class="next"></span> Quản lý tài liệu theo sinh viên</h3>
 	<div class='content_new'>
 		<?php
-		if($_SESSION['masinhvien']==""){
+		if($_SESSION['studentID']==""){
 			echo "<h2>Vui lòng đăng nhập để xem thông tin!</h2>";
 		}
 		else{
 			if($_POST['thuchien_guidoan']=="thuchien_guidoan"){
-				$id_nhomdoan=$_POST['id_nhomdoan'];
-				$id_chuyennganh=$_POST['id_chuyennganh'];
-				$masinhvien=$_SESSION['masinhvien'];
-				$tendoan=trim($_POST['tendoan']);
+				$groupDocID=$_POST['groupDocID'];
+				$id_faculty=$_POST['id_faculty'];
+				$studentID=$_SESSION['studentID'];
+				$title=trim($_POST['title']);
 				$checkdy=trim($_POST['checkdy']);
-				$ngayupload=date('Y-m-d');
-				$filedoan=$_FILES['filedoan']['name'];
-				$tomtat=trim($_POST['tomtat']);
+				$uploadDate=date('Y-m-d');
+				$document=$_FILES['document']['name'];
+				$description=trim($_POST['description']);
                 
                 
-				if($id_nhomdoan!="" & $id_chuyennganh!="" & $masinhvien!="" & $tendoan!="" & $ngayupload!="" & $filedoan!="" & $tomtat!=""){
+				if($groupDocID!="" & $id_faculty!="" & $studentID!="" & $title!="" & $uploadDate!="" & $document!="" & $description!=""){
 					if($checkdy=="on")
 					{
-					$link_upload="upload/".$filedoan;
-					move_uploaded_file($_FILES['filedoan']['tmp_name'],$link_upload);
+					$link_upload="upload/".$document;
+					move_uploaded_file($_FILES['document']['tmp_name'],$link_upload);
 
-					$sql="Insert into tbl_doan value(NULL, $id_nhomdoan, $id_chuyennganh, '$masinhvien', '$tendoan', '$ngayupload', '$filedoan', 'Chưa duyệt', 0, '$tomtat')";
+					$sql="Insert into tbl_document value(NULL, $groupDocID, $id_faculty, '$studentID', '$title', '$uploadDate', '$document', 'Chưa duyệt', 0, '$description')";
 					mysql_query($sql);
 					redirect("?act=doan");
 				 }else{
@@ -48,8 +48,8 @@
 				<td class='tieudeketqua'>Trạng thái</td>
 			</tr>
 		<?php
-			$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.* from tbl_doan DA inner join tbl_nhomdoan NDA on DA.id_nhomdoan=NDA.id inner join tbl_chuyennganh CN on DA.id_chuyennganh=CN.id where DA.masinhvien='$_SESSION[masinhvien]' order by DA.id desc ";
-			$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[sogioihan]");
+			$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.* from tbl_document DA inner join tbl_groupDoc NDA on DA.groupDocID=NDA.id inner join tbl_falcuty CN on DA.id_faculty=CN.id where DA.studentID='$_SESSION[studentID]' order by DA.id desc ";
+			$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 			$i=0;
 			while ($arr=mysql_fetch_array($qr)) {
 				$i++;
@@ -57,25 +57,25 @@
 					<td><center>$i</center></td>
 					<td>$arr[tennhomdoan]</td>
 					<td>$arr[tenchuyennganh]</td>
-					<td><a href='upload/$arr[filedoan]' target='_blank'><u>$arr[tendoan]</u></a></td>
-					<td>$arr[ngayupload]</td>
-					<td>$arr[trangthai]</td>
+					<td><a href='upload/$arr[document]' target='_blank'><u>$arr[title]</u></a></td>
+					<td>$arr[uploadDate]</td>
+					<td>$arr[status]</td>
 				</tr>";
 			}
 		?>
 		</table>
 		</ul>
 	</div>
-	<?php pageDivider("select count(*) from tbl_doan where masinhvien='$_SESSION[masinhvien]'");?>
+	<?php pageDivider("select count(*) from tbl_document where studentID='$_SESSION[studentID]'");?>
 	<div class="list_newP">
 		<form method="post" action="" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td width="150px">Nhóm tài liệu(*):</td>
 				<td>
-					<select class='text-form' name="id_nhomdoan">
+					<select class='text-form' name="groupDocID">
 						<?php
-							$sql="select id, ten from tbl_nhomdoan";
+							$sql="select id, ten from tbl_groupDoc";
 							$qr=mysql_query($sql);
 							while ($arr=mysql_fetch_array($qr)) {
 								echo "<option value='$arr[id]'>$arr[ten]</option>";
@@ -87,9 +87,9 @@
 			<tr>
 			<td>Chuyên ngành(*):</td>
 				<td>
-					<select class='text-form' name="id_chuyennganh">
+					<select class='text-form' name="id_faculty">
 						<?php
-							$sql="select id, ten from tbl_chuyennganh";
+							$sql="select id, ten from tbl_falcuty";
 							$qr=mysql_query($sql);
 							while ($arr=mysql_fetch_array($qr)) {
 								echo "<option value='$arr[id]'>$arr[ten]</option>";
@@ -100,15 +100,15 @@
 			</tr>
 			<tr>
 				<td>File tài liệu(*):</td>
-				<td><input name="filedoan" type="file" class='text-form'></td>
+				<td><input name="document" type="file" class='text-form'></td>
 			</tr>
 			<tr>
 				<td>Tên tài liệu(*):</td>
-				<td><input name="tendoan" class='text-form'></td>
+				<td><input name="title" class='text-form'></td>
 			</tr>
 			<tr>
 				<td>Tóm tắt(*):</td>
-				<td><textarea name="tomtat" rows="10" cols="80"></textarea></td>
+				<td><textarea name="description" rows="10" cols="80"></textarea></td>
 			</tr>
 			<tr>
 				<td> </td>

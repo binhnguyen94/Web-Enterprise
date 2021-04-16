@@ -1,5 +1,5 @@
 <?php
-	$sql="select * from tbl_chuyennganh where id=$_GET[id]";
+	$sql="select * from tbl_falcuty where id=$_GET[id]";
 	$qr=mysql_query($sql);
 	$kq=mysql_fetch_array($qr);
 ?>

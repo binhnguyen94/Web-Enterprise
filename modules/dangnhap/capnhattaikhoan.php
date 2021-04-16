@@ -1,12 +1,12 @@
 <?php
 	if($_POST['thuchien_capnhat']=="thuchien_capnhat"){
-		if($_POST['id_lophoc']!="" & $_POST['ngaysinh']!="" & $_POST['hoten']!="" & $_POST['dienthoai']!="" & $_POST['email']!=""){
-			if($_POST['matkhau']==""){
-				$tv="update tbl_sinhvien set hoten='$_POST[hoten]', ngaysinh='$_POST[ngaysinh]', id_lophoc=$_POST[id_lophoc], dienthoai='$_POST[dienthoai]', email='$_POST[email]' where masinhvien=$_SESSION[masinhvien]";
+		if($_POST['id_faculty']!="" & $_POST['dob']!="" & $_POST['fullname']!="" & $_POST['phoneNum']!="" & $_POST['email']!=""){
+			if($_POST['password']==""){
+				$tv="update tbl_student set fullname='$_POST[fullname]', dob='$_POST[dob]', id_faculty=$_POST[id_faculty], phoneNum='$_POST[phoneNum]', email='$_POST[email]' where studentID=$_SESSION[studentID]";
 			}
 			else{
-				$matkhau=md5($_POST['matkhau']);
-				$tv="update tbl_sinhvien set matkhau='$matkhau', hoten='$_POST[hoten]', ngaysinh='$_POST[ngaysinh]', id_lophoc=$_POST[id_lophoc], dienthoai='$_POST[dienthoai]', email='$_POST[email]' where masinhvien=$_SESSION[masinhvien]";
+				$password=md5($_POST['password']);
+				$tv="update tbl_student set password='$password', fullname='$_POST[fullname]', dob='$_POST[dob]', id_faculty=$_POST[id_faculty], phoneNum='$_POST[phoneNum]', email='$_POST[email]' where studentID=$_SESSION[studentID]";
 			}
 			mysql_query($tv);
 		}
@@ -20,7 +20,7 @@
 	<h3><a href="index.php">Trang chủ</a><span class="next"></span> Cập nhật thông tin tài khoản</h3>
 	<div class="content_new">
 		<?php
-			$tv="select * from tbl_sinhvien where masinhvien=$_SESSION[masinhvien]";
+			$tv="select * from tbl_student where studentID=$_SESSION[studentID]";
 			$qr=mysql_query($tv);
 			$kq=mysql_fetch_array($qr);
 		?>
@@ -29,12 +29,12 @@
 			<tr>
 				<td width="150px">Lớp(*):</td>
 				<td>
-					<select class='text-form' name="id_lophoc">
+					<select class='text-form' name="id_faculty">
 						<?php
-							$sql="select id, ten from tbl_lophoc where id=$kq[id_lophoc]";
+							$sql="select id, ten from tbl_lophoc where id=$kq[id_faculty]";
 							$qr=mysql_query($sql);
 							while ($arr=mysql_fetch_array($qr)) {
-								echo "<option value='$arr[id]' ".(($kq['id_lophoc']==$arr['id'])?'selected' : '').">$arr[ten]</option>";
+								echo "<option value='$arr[id]' ".(($kq['id_faculty']==$arr['id'])?'selected' : '').">$arr[ten]</option>";
 							}
 						?>
 					</select>
@@ -42,23 +42,23 @@
 			</tr>
 			<tr>
 				<td>Tên đăng nhập(*):</td>
-				<td><input name="tendangnhap" readonly="true" value="<?php echo $kq[masinhvien]; ?>" class='text-form'></td>
+				<td><input name="tendangnhap" readonly="true" value="<?php echo $kq[studentID]; ?>" class='text-form'></td>
 			</tr>
 			<tr>
 				<td>Mật khẩu:</td>
-				<td><input name="matkhau" class='text-form'></td>
+				<td><input name="password" class='text-form'></td>
 			</tr>
 			<tr>
 				<td>Họ tên(*):</td>
-				<td><input name="hoten" value="<?php echo $kq[hoten]; ?>" class='text-form'></td>
+				<td><input name="fullname" value="<?php echo $kq[fullname]; ?>" class='text-form'></td>
 			</tr>
 			<tr>
 				<td>Ngày sinh(*):</td>
-				<td><input name="ngaysinh" type="date" value="<?php echo $kq[ngaysinh]; ?>" class='text-form'></td>
+				<td><input name="dob" type="date" value="<?php echo $kq[dob]; ?>" class='text-form'></td>
 			</tr>
 			<tr>
 				<td>Điện thoại(*):</td>
-				<td><input name="dienthoai" value="<?php echo $kq[dienthoai]; ?>" class='text-form'></td>
+				<td><input name="phoneNum" value="<?php echo $kq[phoneNum]; ?>" class='text-form'></td>
 			</tr>
 			<tr>
 				<td>Email(*):</td>

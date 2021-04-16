@@ -1,18 +1,18 @@
 <?php
 	$id=(int)$_GET['id'];
-	$magiaovien=$_SESSION['magiaovien'];
+	$adminID=$_SESSION['adminID'];
 	$tentailieu=trim($_POST['tentailieu']);
 	$id_nhomtailieu=(int)$_POST['id_nhomtailieu'];
-	$id_chuyennganh=(int)$_POST['id_chuyennganh'];
+	$id_faculty=(int)$_POST['id_faculty'];
 	$hinhanh=$_FILES['hinhanh']['name'];
 	$noidung=trim($_POST['noidung']);
-	if($magiaovien!="" & $noidung!="" & $tentailieu!="" & $id_nhomtailieu!="" & $id_chuyennganh!="" & $hinhanh!=""){
+	if($adminID!="" & $noidung!="" & $tentailieu!="" & $id_nhomtailieu!="" & $id_faculty!="" & $hinhanh!=""){
 		$link_upload="../upload/".$hinhanh;
 		move_uploaded_file($_FILES['hinhanh']['tmp_name'],$link_upload);
-		$sql="Insert into tbl_tailieu value(Null, $id_nhomtailieu, $id_chuyennganh, '$magiaovien', '$tentailieu', '$hinhanh', '$noidung')";
+		$sql="Insert into tbl_tailieu value(Null, $id_nhomtailieu, $id_faculty, '$adminID', '$tentailieu', '$hinhanh', '$noidung')";
 		mysql_query($sql);
 		$_SESSION['id_nhomtailieu']=$id_nhomtailieu;
-		$_SESSION['id_chuyennganh']=$id_chuyennganh;
+		$_SESSION['id_faculty']=$id_faculty;
 		notice("Thêm thông tin thành công");
 		redirect("?act=tailieu&mod=them");
 	}

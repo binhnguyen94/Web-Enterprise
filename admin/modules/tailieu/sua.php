@@ -29,12 +29,12 @@
 	<tr>
 		<td>Chuyên ngành(*) :</td>
 		<td>
-			<select name="id_chuyennganh">
+			<select name="id_faculty">
 			<?php
-				$sql="select id, ten from tbl_chuyennganh";
+				$sql="select id, ten from tbl_falcuty";
 				$qr=mysql_query($sql);
 				while ($arr=mysql_fetch_array($qr)) {
-					echo "<option value='$arr[id]'".(($kq['id_chuyennganh']==$arr['id'])?' selected':'').">$arr[ten]</option>";
+					echo "<option value='$arr[id]'".(($kq['id_faculty']==$arr['id'])?' selected':'').">$arr[ten]</option>";
 				}
 			?>
 			</select>

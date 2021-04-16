@@ -9,10 +9,10 @@
 <?php
 	ini_set('display_errors', 0);
 	include("../includes/ketnoi.php");
-	if($_GET['id_lophoc']){
-		$sql="select LH.ten as 'tenlophoc', SV.* from tbl_sinhvien SV inner join tbl_lophoc LH on SV.id_lophoc=LH.id where LH.id=$_GET[id_lophoc]";
+	if($_GET['id_faculty']){
+		$sql="select LH.ten as 'tenlophoc', SV.* from tbl_student SV inner join tbl_lophoc LH on SV.id_faculty=LH.id where LH.id=$_GET[id_faculty]";
 	}
-	else $sql="select LH.ten as 'tenlophoc', SV.* from tbl_sinhvien SV inner join tbl_lophoc LH on SV.id_lophoc=LH.id";
+	else $sql="select LH.ten as 'tenlophoc', SV.* from tbl_student SV inner join tbl_lophoc LH on SV.id_faculty=LH.id";
 	$qr=mysql_query($sql);
 ?>
 	<table border="0" width="100%">
@@ -39,11 +39,11 @@
 				echo "
 					<tr>
 						<td style='text-align:center;'>$i</td>
-						<td>$kq[masinhvien]</td>
+						<td>$kq[studentID]</td>
 						<td>$kq[tenlophoc]</td>
-						<td>$kq[hoten]</td>
-						<td>$kq[ngaysinh]</td>
-						<td>$kq[dienthoai]</td>
+						<td>$kq[fullname]</td>
+						<td>$kq[dob]</td>
+						<td>$kq[phoneNum]</td>
 						<td>$kq[email]</td>
 					</tr>
 				";

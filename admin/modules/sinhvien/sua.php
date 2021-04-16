@@ -1,5 +1,5 @@
 <?php
-	$sql="select * from tbl_sinhvien where masinhvien='$_GET[id]'";
+	$sql="select * from tbl_student where studentID='$_GET[id]'";
 	$qr=mysql_query($sql);
 	$kq=mysql_fetch_array($qr);
 ?>
@@ -11,12 +11,12 @@
 	<tr>
 		<td width="150px">Lớp học(*) :</td>
 		<td>
-			<select name="id_lophoc">
+			<select name="id_faculty">
 			<?php
 				$sql="select id, ten from tbl_lophoc";
 				$qr=mysql_query($sql);
 				while ($arr=mysql_fetch_array($qr)) {
-					echo "<option value='$arr[id]'".(($kq['id_lophoc']==$arr['id'])?' selected':'').">$arr[ten]</option>";
+					echo "<option value='$arr[id]'".(($kq['id_faculty']==$arr['id'])?' selected':'').">$arr[ten]</option>";
 				}
 			?>
 			</select>
@@ -24,23 +24,23 @@
 	</tr>
 	<tr>
 		<td>Tên đăng nhập(*) :</td>
-		<td><input class="medium-input" readonly="1" name="tendangnhap" value="<?php echo $kq[masinhvien]; ?>" /></td>
+		<td><input class="medium-input" readonly="1" name="tendangnhap" value="<?php echo $kq[studentID]; ?>" /></td>
 	</tr>
 	<tr>
 		<td>Mật khẩu(*) :</td>
-		<td><input class="medium-input" name="matkhau" value="" /></td>
+		<td><input class="medium-input" name="password" value="" /></td>
 	</tr>
 	<tr>
 		<td>Họ tên(*) :</td>
-		<td><input class="medium-input" name="hoten" value="<?php echo $kq[hoten]; ?>" /></td>
+		<td><input class="medium-input" name="fullname" value="<?php echo $kq[fullname]; ?>" /></td>
 	</tr>
 	<tr>
 		<td>Ngày sinh(*) :</td>
-		<td><input class="medium-input" type="date" name="ngaysinh" value="<?php echo $kq[ngaysinh]; ?>" /></td>
+		<td><input class="medium-input" type="date" name="dob" value="<?php echo $kq[dob]; ?>" /></td>
 	</tr>
 	<tr>
 		<td>Điện thoại(*) :</td>
-		<td><input class="medium-input" name="dienthoai" value="<?php echo $kq[dienthoai]; ?>" /></td>
+		<td><input class="medium-input" name="phoneNum" value="<?php echo $kq[phoneNum]; ?>" /></td>
 	</tr>
 	<tr>
 		<td>Email(*) :</td>

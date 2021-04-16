@@ -9,7 +9,7 @@
 	</tr>	
 
 <?php
-$sql="select * from tbl_chuyennganh order by id desc";
+$sql="select * from tbl_falcuty order by id desc";
 $qr=mysql_query($sql);
 $i=0;
 while ($kq=mysql_fetch_array($qr)) {

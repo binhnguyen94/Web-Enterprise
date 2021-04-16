@@ -3,9 +3,9 @@ echo "<div class='product'>";
 	echo "<h3><a href='index.php'>Trang chủ</a><span class='next'></span>Tài liệu</h3>";
 	//danh sách tài liệu
 	echo "<ul class='list_product'>";
-	if($_GET['id_chuyennganh']){
-		$tv="select * from tbl_tailieu where id_chuyennganh=$_GET[id_chuyennganh] order by id desc";
-		$phantrang="select count(*) from tbl_tailieu where id_chuyennganh=$_GET[id_chuyennganh]";
+	if($_GET['id_faculty']){
+		$tv="select * from tbl_tailieu where id_faculty=$_GET[id_faculty] order by id desc";
+		$phantrang="select count(*) from tbl_tailieu where id_faculty=$_GET[id_faculty]";
 	}
 	elseif($_GET['id_nhomtailieu']){
 		$tv="select * from tbl_tailieu where id_nhomtailieu=$_GET[id_nhomtailieu] order by id desc";
@@ -15,7 +15,7 @@ echo "<div class='product'>";
 		$tv="select * from tbl_tailieu where tentailieu like '%$_GET[key]%' order by id desc";
 		$phantrang="select count(*) from tbl_tailieu where tentailieu like '%$_GET[key]%'";
 	}
-	$qr=mysql_query($tv." limit $GLOBALS[vtbd], $GLOBALS[sogioihan]");
+	$qr=mysql_query($tv." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 	while ($kq=mysql_fetch_array($qr)) {
 		echo "<li>";
 			echo "<a href='?act=chitiettailieu&id=$kq[id]'>

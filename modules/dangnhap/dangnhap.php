@@ -1,13 +1,13 @@
 <?php
 	if($_POST['thuchien_dangnhap']=="thuchien_dangnhap"){
-		if($_POST['tendangnhap']!="" & $_POST['matkhau']!=""){
-			$matkhau=md5($_POST['matkhau']);
-			$tv="select * from tbl_sinhvien where masinhvien='$_POST[tendangnhap]' and matkhau='$matkhau'";
+		if($_POST['tendangnhap']!="" & $_POST['password']!=""){
+			$password=md5($_POST['password']);
+			$tv="select * from tbl_student where studentID='$_POST[tendangnhap]' and password='$password'";
 			$qr=mysql_query($tv);
 			$kq=mysql_fetch_array($qr);
 			if($kq){
-				$_SESSION['masinhvien']=$kq['masinhvien'];
-				$_SESSION['hoten_sv']=$kq['hoten'];
+				$_SESSION['studentID']=$kq['studentID'];
+				$_SESSION['hoten_sv']=$kq['fullname'];
 				previousPage();
 			} 
 			else{
@@ -21,7 +21,7 @@
 		}
 	}
 ?>
-<?php if($_SESSION['masinhvien']!="" & $_SESSION['hoten_sv']!=""){ ?>
+<?php if($_SESSION['studentID']!="" & $_SESSION['hoten_sv']!=""){ ?>
 	<p style="margin-left:10px;"><b>
 		<a href='?act=capnhattaikhoan'>Sinh viên: <?php echo $_SESSION['hoten_sv']; ?></a><br/>
 		<a href='?act=dangxuat'>Đăng xuất</a>
@@ -33,7 +33,7 @@
 		<td><input name="tendangnhap" placeholder='Tên đăng nhập' class='text-formlogin'></td>
 	</tr>
 	<tr>
-		<td><input name="matkhau" type="password" placeholder='mật khẩu' class='text-formlogin'></td>
+		<td><input name="password" type="password" placeholder='mật khẩu' class='text-formlogin'></td>
 	</tr>
 	<tr>
 		<td>

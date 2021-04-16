@@ -1,9 +1,9 @@
 <div class='new_detail'>
 <?php
-	$tv="select TL.*, CN.ten as tenchuyennganh, NTL.ten as tennhomtailieu from tbl_tailieu TL inner join tbl_chuyennganh CN on TL.id_chuyennganh=CN.id inner join tbl_nhomtailieu NTL on TL.id_nhomtailieu=NTL.id where TL.id=$_GET[id]";
+	$tv="select TL.*, CN.ten as tenchuyennganh, NTL.ten as tennhomtailieu from tbl_tailieu TL inner join tbl_falcuty CN on TL.id_faculty=CN.id inner join tbl_nhomtailieu NTL on TL.id_nhomtailieu=NTL.id where TL.id=$_GET[id]";
 	$qr=mysql_query($tv);
 	$kq=mysql_fetch_array($qr);
-	echo "<h3><a href='index.php'>Trang chủ</a><span class='next'></span><a href='?act=tailieu&id_chuyennganh=$kq[id_chuyennganh]'>$kq[tenchuyennganh]</a><span class='next'></span><a href='?act=tailieu&id_nhomtailieu=$kq[id_nhomtailieu]'>$kq[tennhomtailieu]</a><span class='next'></span>$kq[tentailieu]</h3>";
+	echo "<h3><a href='index.php'>Trang chủ</a><span class='next'></span><a href='?act=tailieu&id_faculty=$kq[id_faculty]'>$kq[tenchuyennganh]</a><span class='next'></span><a href='?act=tailieu&id_nhomtailieu=$kq[id_nhomtailieu]'>$kq[tennhomtailieu]</a><span class='next'></span>$kq[tentailieu]</h3>";
 	echo "<div class='content_new'>";
 		echo "<h2>$kq[tentailieu]</h2>";
 		echo "<p>$kq[noidung]</p>";

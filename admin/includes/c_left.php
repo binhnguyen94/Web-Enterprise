@@ -20,7 +20,7 @@
     width: 112px;
 "></a>
 	<div id="profile-links">
-		Hello, <a href="?act=login&mod=doimatkhau" title="Đổi mật khẩu"><?php echo $_SESSION['magiaovien']; ?></a> | <a href="?act=login&mod=thoat" title="Đăng xuất">Logout</a>
+		Hello, <a href="?act=login&mod=doimatkhau" title="Đổi mật khẩu"><?php echo $_SESSION['adminID']; ?></a> | <a href="?act=login&mod=logout" title="Logout">Logout</a>
 	</div>
 	<ul id="main-nav">
 		<li>
@@ -28,7 +28,7 @@
 				Homepage
 			</a>       
 		</li>
-		<?php if($_SESSION['quyensudung']=="Quản trị viên"){ ?>
+		<?php if($_SESSION['roles']=="Admin"){ ?>
 		<li>
 			<a href="#" class="nav-top-item <?php echo check_current_act('khoahoc').check_current_act('hedaotao').check_current_act('chuyennganh').check_current_act('lophoc').check_current_act('giaovien').check_current_act('sinhvien'); ?>">
 			General Management</a>
@@ -58,7 +58,7 @@
 			<a href="#" class="nav-top-item <?php echo check_current_act('nhomdoan'). check_current_act('doan'); ?>">
 			Document Group Management</a>
 			<ul>
-				<?php if($_SESSION['quyensudung']=="Quản trị viên"){ ?>
+				<?php if($_SESSION['roles']=="Admin"){ ?>
 				<li><a class="<?php echo check_current_mod('nhomdoan','them'); ?>" href="?act=nhomdoan&mod=them">Thêm nhóm tài liệu</a></li>
 				<li><a class="<?php echo check_current_mod('nhomdoan',''); ?>" href="?act=nhomdoan
 				">Danh sách nhóm tài liệu</a></li>
@@ -69,7 +69,7 @@
 				</li>
 			</ul>
 		</li>
-		<?php if($_SESSION['quyensudung']=="Quản trị viên" || $_SESSION['quyensudung']=="Điều phối viên tiếp thị" ){ ?>
+		<?php if($_SESSION['roles']=="Admin" || $_SESSION['roles']=="Coordinator" ){ ?>
 		<li>
 			<a href="#" class="nav-top-item <?php echo check_current_act('nhomtailieu').check_current_act('tailieu'); ?>">
 			Document Source Management</a>

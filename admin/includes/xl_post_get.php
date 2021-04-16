@@ -1,9 +1,9 @@
 <?php
-	if($_POST['dangnhap']=="dangnhap"){
-		include("modules/login/thuchien_dangnhap.php");
+	if($_POST['login']=="login"){
+		include("modules/login/functionLogin.php");
 	}
-	if($_POST['doimatkhau']=="doimatkhau"){
-		include("modules/login/thuchien_doimatkhau.php");
+	if($_POST['changePassword']=="changePassword"){
+		include("modules/login/functionChangePassword.php");
 	}
 	if($_POST['themchuyennganh']=="themchuyennganh"){
 		include("modules/chuyennganh/thuchien_them.php");

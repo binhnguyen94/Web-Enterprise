@@ -4,8 +4,8 @@
 			if($_GET['mod']=="doimatkhau"){
 				include("modules/login/doimatkhau.php");
 			}
-			else if($_GET['mod']=="thoat"){
-				include("modules/login/dangxuat.php");
+			else if($_GET['mod']=="logout"){
+				include("modules/login/logout.php");
 			}
 			break;
 		case 'chuyennganh':

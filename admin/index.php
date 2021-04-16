@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Document Student Management</title>
+<title>Document Management</title>
 <link rel="stylesheet" href="teamplates/css/reset.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="teamplates/css/style.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="teamplates/css/invalid.css" type="text/css" media="screen" />	
@@ -18,18 +18,18 @@
 </head>
 <?php
 	include("includes/xl_post_get.php");
-	if($_SESSION['quyensudung']=="" & $_SESSION['magiaovien']==""){
-		include("modules/login/dangnhap.php");
+	if($_SESSION['roles']=="" & $_SESSION['adminID']==""){
+		include("modules/login/login.php");
 	}
 ?>
 <body>
 	<div id="body-wrapper">
 		<div id="sidebar">
-			<?php include("includes/c_trai.php"); ?>
+			<?php include("includes/c_left.php"); ?>
 		</div>
 		<div id="main-content">
 			<div class="content-box">
-				<?php include("includes/c_phai.php"); ?>
+				<?php include("includes/c_right.php"); ?>
 			</div>
 		</div>
 	</div>

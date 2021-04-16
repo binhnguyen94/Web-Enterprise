@@ -1,19 +1,19 @@
 <?php
 	$id=$_GET['id'];
-	$id_lophoc=(int)$_POST['id_lophoc'];
-	$matkhau=trim($_POST['matkhau']);
-	$hoten=trim($_POST['hoten']);
-	$ngaysinh=trim($_POST['ngaysinh']);
-	$dienthoai=trim($_POST['dienthoai']);
+	$id_faculty=(int)$_POST['id_faculty'];
+	$password=trim($_POST['password']);
+	$fullname=trim($_POST['fullname']);
+	$dob=trim($_POST['dob']);
+	$phoneNum=trim($_POST['phoneNum']);
 	$email=trim($_POST['email']);
 	$tendangnhap=trim($_POST['tendangnhap']);
-	if($id_lophoc!="" & $hoten!="" & $ngaysinh!="" & $dienthoai!="" & $email!="" & $tendangnhap!=""){
-		if($matkhau!=""){
-			$matkhau=md5($matkhau);
-			$sql="update tbl_sinhvien set matkhau='$matkhau', id_lophoc=$id_lophoc, hoten='$hoten', ngaysinh='$ngaysinh', dienthoai='$dienthoai', email='$email' where masinhvien='$id'";
+	if($id_faculty!="" & $fullname!="" & $dob!="" & $phoneNum!="" & $email!="" & $tendangnhap!=""){
+		if($password!=""){
+			$password=md5($password);
+			$sql="update tbl_student set password='$password', id_faculty=$id_faculty, fullname='$fullname', dob='$dob', phoneNum='$phoneNum', email='$email' where studentID='$id'";
 		}
 		else{
-			$sql="update tbl_sinhvien set id_lophoc=$id_lophoc, hoten='$hoten', ngaysinh='$ngaysinh', dienthoai='$dienthoai', email='$email' where masinhvien='$id'";
+			$sql="update tbl_student set id_faculty=$id_faculty, fullname='$fullname', dob='$dob', phoneNum='$phoneNum', email='$email' where studentID='$id'";
 		}
 		mysql_query($sql);
 		redirect("?act=sinhvien");

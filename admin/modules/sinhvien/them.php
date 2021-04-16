@@ -15,7 +15,7 @@
 				$sql="select id, ten from tbl_lophoc";
 				$qr=mysql_query($sql);
 				while ($arr=mysql_fetch_array($qr)) {
-					echo "<option value='$arr[id]'".(($_SESSION['id_lophoc']==$arr['id'])?' selected':'').">$arr[ten]</option>";
+					echo "<option value='$arr[id]'".(($_SESSION['id_faculty']==$arr['id'])?' selected':'').">$arr[ten]</option>";
 				}
 			?>
 			</select>

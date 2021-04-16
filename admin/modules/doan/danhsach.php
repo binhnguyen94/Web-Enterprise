@@ -13,7 +13,7 @@
 		}
 		function chuyen_link_lh(id)
 		{
-			if(id) window.location="?act=doan&id_hedaotao=<?php echo $_GET[id_hedaotao]; ?>&id_khoahoc=<?php echo $_GET[id_khoahoc]; ?>&id_lophoc="+id;
+			if(id) window.location="?act=doan&id_hedaotao=<?php echo $_GET[id_hedaotao]; ?>&id_khoahoc=<?php echo $_GET[id_khoahoc]; ?>&id_faculty="+id;
 			else window.location="?act=doan&id_hedaotao=<?php echo $_GET[id_hedaotao]; ?>&id_khoahoc=<?php echo $_GET[id_khoahoc]; ?>";
 		}
 	</script>
@@ -47,11 +47,11 @@
 				$sql="select id, ten from tbl_lophoc where id_hedaotao=$_GET[id_hedaotao] and id_khoahoc=$_GET[id_khoahoc]";
 				$qr=mysql_query($sql);
 				while ($arr=mysql_fetch_array($qr)) {
-					echo "<option value='$arr[id]'".(($_GET['id_lophoc']==$arr['id'])?' selected':'').">$arr[ten]</option>";
+					echo "<option value='$arr[id]'".(($_GET['id_faculty']==$arr['id'])?' selected':'').">$arr[ten]</option>";
 				}
 			?>
 		</select>
-		<a target="_blank" href="indanhsachda.php?<?php echo 'id_hedaotao='.$_GET[id_hedaotao].'&id_khoahoc='.$_GET[id_khoahoc].'&id_lophoc='.$_GET[id_lophoc]; ?>"><input type="button" value="In danh sách" class="button"></a>
+		<a target="_blank" href="indanhsachda.php?<?php echo 'id_hedaotao='.$_GET[id_hedaotao].'&id_khoahoc='.$_GET[id_khoahoc].'&id_faculty='.$_GET[id_faculty]; ?>"><input type="button" value="In danh sách" class="button"></a>
 	</form>
 </div>
 <table>
@@ -69,18 +69,18 @@
 	</tr>
 <?php
 $chuyenganh_gv=$_SESSION['chuyenganh_gv'];
-if($_SESSION['quyensudung']=="Quản trị viên"){$morong=" "; $morong1="";}
-else {$morong="DA.id_chuyennganh=$chuyenganh_gv and"; $morong1="where DA.id_chuyennganh=$chuyenganh_gv";}
-if($_GET['id_lophoc']){
-	$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.hoten from tbl_doan DA inner join tbl_nhomdoan NDA on DA.id_nhomdoan=NDA.id inner join tbl_chuyennganh CN on DA.id_chuyennganh=CN.id inner join tbl_sinhvien SV on SV.masinhvien=DA.masinhvien where $morong DA.masinhvien in (select masinhvien from tbl_sinhvien where id_lophoc=$_GET[id_lophoc]) order by DA.id desc";
+if($_SESSION['role']=="Quản trị viên"){$morong=" "; $morong1="";}
+else {$morong="DA.id_faculty=$chuyenganh_gv and"; $morong1="where DA.id_faculty=$chuyenganh_gv";}
+if($_GET['id_faculty']){
+	$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.fullname from tbl_document DA inner join tbl_groupDoc NDA on DA.groupDocID=NDA.id inner join tbl_falcuty CN on DA.id_faculty=CN.id inner join tbl_student SV on SV.studentID=DA.studentID where $morong DA.studentID in (select studentID from tbl_student where id_faculty=$_GET[id_faculty]) order by DA.id desc";
 }
 elseif($_GET['name']){
-	$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.hoten from tbl_doan DA inner join tbl_nhomdoan NDA on DA.id_nhomdoan=NDA.id inner join tbl_chuyennganh CN on DA.id_chuyennganh=CN.id inner join tbl_sinhvien SV on SV.masinhvien=DA.masinhvien where $morong DA.tendoan like '%$_GET[name]%' order by DA.id desc";
+	$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.fullname from tbl_document DA inner join tbl_groupDoc NDA on DA.groupDocID=NDA.id inner join tbl_falcuty CN on DA.id_faculty=CN.id inner join tbl_student SV on SV.studentID=DA.studentID where $morong DA.title like '%$_GET[name]%' order by DA.id desc";
 }
 else{
-	$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.hoten from tbl_doan DA inner join tbl_nhomdoan NDA on DA.id_nhomdoan=NDA.id inner join tbl_chuyennganh CN on DA.id_chuyennganh=CN.id inner join tbl_sinhvien SV on SV.masinhvien=DA.masinhvien $morong1 order by DA.id desc";
+	$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.*, SV.fullname from tbl_document DA inner join tbl_groupDoc NDA on DA.groupDocID=NDA.id inner join tbl_falcuty CN on DA.id_faculty=CN.id inner join tbl_student SV on SV.studentID=DA.studentID $morong1 order by DA.id desc";
 }
-$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[sogioihan]");
+$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 $i=0;
 while ($kq=mysql_fetch_array($qr)) {
 	$i++;
@@ -88,20 +88,20 @@ while ($kq=mysql_fetch_array($qr)) {
 		echo "<td>$i</td>";
 		echo "<td>".$kq['tennhomdoan']."</td>";
 		echo "<td>".$kq['tenchuyennganh']."</td>";
-		echo "<td>".$kq['masinhvien']."</td>";
-		echo "<td>".$kq['hoten']."</td>";
-		echo "<td><a href='../upload/$kq[filedoan]' target='_blank'>".$kq['tendoan']."</a></td>";
-		echo "<td>".$kq['ngayupload']."</td>";
-		echo "<td>".$kq['trangthai'];
-		if($kq['trangthai']!="Chưa duyệt"){
-			$tv="select hoten from tbl_giaovien where magiaovien='$kq[magiaovien]'";
+		echo "<td>".$kq['studentID']."</td>";
+		echo "<td>".$kq['fullname']."</td>";
+		echo "<td><a href='../upload/$kq[document]' target='_blank'>".$kq['title']."</a></td>";
+		echo "<td>".$kq['uploadDate']."</td>";
+		echo "<td>".$kq['status'];
+		if($kq['status']!="Chưa duyệt"){
+			$tv="select fullname from tbl_admin where adminID='$kq[adminID]'";
 			$tv1=mysql_query($tv);
 			$tv2=mysql_fetch_array($tv1);
-			echo " ($tv2[hoten])</td><td>";
+			echo " ($tv2[fullname])</td><td>";
 		}
 		else{
 			echo "</td>";
-			echo "<td>[<a href='?act=doan&mod=duyetdoan&id=$kq[id]&trangthai=Đã duyệt'>Duyệt tài liệu</a>] | [<a href='?act=doan&mod=duyetdoan&id=$kq[id]&trangthai=Không được duyệt'>Không duyệt</a>] | ";
+			echo "<td>[<a href='?act=doan&mod=duyetdoan&id=$kq[id]&status=Đã duyệt'>Duyệt tài liệu</a>] | [<a href='?act=doan&mod=duyetdoan&id=$kq[id]&status=Không được duyệt'>Không duyệt</a>] | ";
 		}
 			echo "[<a href='?act=doan&mod=xoa&id=$kq[id]' onclick='return checkDel()'>Xóa</a>] | [<a href='?act=doan&mod=xemtomtat&id=$kq[id]'>Xem tóm tắt</a>]</td>";
 			echo "<td><input name='danhgia".$kq[id]."' class='text-form'></td>";
@@ -110,7 +110,7 @@ while ($kq=mysql_fetch_array($qr)) {
 ?>
 </table>
 <?php 
-	if($_GET['id_lophoc']) pageDivider("select count(*) from tbl_doan where $morong masinhvien in (select masinhvien from tbl_sinhvien where id_lophoc=$_GET[id_lophoc])"); 
-	elseif($_GET['name']) pageDivider("select count(*) from tbl_doan where $morong tendoan like'%$_GET[name]%'"); 
-	else pageDivider("select count(*) from tbl_doan DA $morong1");
+	if($_GET['id_faculty']) pageDivider("select count(*) from tbl_document where $morong studentID in (select studentID from tbl_student where id_faculty=$_GET[id_faculty])"); 
+	elseif($_GET['name']) pageDivider("select count(*) from tbl_document where $morong title like'%$_GET[name]%'"); 
+	else pageDivider("select count(*) from tbl_document DA $morong1");
 ?>

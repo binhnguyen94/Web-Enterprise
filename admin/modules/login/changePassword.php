@@ -5,10 +5,10 @@
 	<table>
 	    <tr>
 	    	<td width="150px">New Password(*): </td>
-	    	<td><input class="medium-input" type="password" name="matkhau" /></td>
+	    	<td><input class="medium-input" type="password" name="password" /></td>
 	    </tr>
 	    <tr>
-	    	<td><input type="hidden" name="doimatkhau" value="doimatkhau"/></td>
+	    	<td><input type="hidden" name="changePassword" value="changePassword"/></td>
 	    	<td><input class="button" type="submit" value=" Accept "/></td>
 	    </tr>
 	</table>
