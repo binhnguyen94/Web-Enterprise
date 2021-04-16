@@ -5,11 +5,11 @@
 	$qr=mysql_query($sql);
 	$arr=mysql_fetch_array($qr);
 	if($arr){
-		notice("Phải xóa tài liệu của người dùng trước vì lý do lỗi ràng buộc dữ liệu!");
+		notice("User documents must be deleted first because of a data binding error!");
 	}
 	else{
 		$sql="delete from tbl_admin where adminID='$id'";
 		mysql_query($sql);
 	}
-	redirect("?act=giaovien");
+	redirect("?act=admin");
 ?>

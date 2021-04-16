@@ -9,7 +9,7 @@
 			<form action="" method="post">
 				<p>
 					<label>Login ID</label>
-					<input class="text-input" name="user" />
+					<input class="text-input" name="username" />
 				</p>
 				<div class="clear"></div>
 				<p>

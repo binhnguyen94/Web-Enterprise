@@ -20,7 +20,7 @@
     width: 112px;
 "></a>
 	<div id="profile-links">
-		Hello, <a href="?act=login&mod=doimatkhau" title="Đổi mật khẩu"><?php echo $_SESSION['adminID']; ?></a> | <a href="?act=login&mod=logout" title="Logout">Logout</a>
+		Hello, <a href="?act=login&mod=changePassword" title="Change Password"><?php echo $_SESSION['adminID']; ?></a> | <a href="?act=login&mod=logout" title="Logout">Logout</a>
 	</div>
 	<ul id="main-nav">
 		<li>
@@ -30,7 +30,7 @@
 		</li>
 		<?php if($_SESSION['roles']=="Admin"){ ?>
 		<li>
-			<a href="#" class="nav-top-item <?php echo check_current_act('khoahoc').check_current_act('hedaotao').check_current_act('chuyennganh').check_current_act('lophoc').check_current_act('giaovien').check_current_act('sinhvien'); ?>">
+			<a href="#" class="nav-top-item <?php echo check_current_act('khoahoc').check_current_act('hedaotao').check_current_act('faculty').check_current_act('lophoc').check_current_act('admin').check_current_act('student'); ?>">
 			General Management</a>
 			<ul>
 				<li><a class="<?php echo check_current_mod('khoahoc','them'); ?>" href="?act=khoahoc&mod=them">Thêm khóa học</a></li>
@@ -39,18 +39,18 @@
 				<li><a class="<?php echo check_current_mod('hedaotao','them'); ?>" href="?act=hedaotao&mod=them">Thêm hệ đào tạo</a></li>
 				<li><a class="<?php echo check_current_mod('hedaotao',''); ?>" href="?act=hedaotao
 				">Danh sách hệ đào tạo</a></li>
-				<li><a class="<?php echo check_current_mod('chuyennganh','them'); ?>" href="?act=chuyennganh&mod=them">Thêm chuyên ngành</a></li>
-				<li><a class="<?php echo check_current_mod('chuyennganh',''); ?>" href="?act=chuyennganh
-				">Danh sách chuyên ngành</a></li>
+				<li><a class="<?php echo check_current_mod('faculty','add'); ?>" href="?act=faculty&mod=add">Add Faculty</a></li>
+				<li><a class="<?php echo check_current_mod('faculty',''); ?>" href="?act=faculty
+				">List Faculty</a></li>
 				<li><a class="<?php echo check_current_mod('lophoc','them'); ?>" href="?act=lophoc&mod=them">Thêm lớp học</a></li>
 				<li><a class="<?php echo check_current_mod('lophoc',''); ?>" href="?act=lophoc
 				">Danh sách lớp học</a></li>
-				<li><a class="<?php echo check_current_mod('giaovien','them'); ?>" href="?act=giaovien&mod=them">Thêm người dùng</a></li>
-				<li><a class="<?php echo check_current_mod('giaovien',''); ?>" href="?act=giaovien
-				">Danh sách người dùng</a></li>
-				<li><a class="<?php echo check_current_mod('sinhvien','them'); ?>" href="?act=sinhvien&mod=them">Thêm sinh viên</a></li>
-				<li><a class="<?php echo check_current_mod('sinhvien',''); ?>" href="?act=sinhvien
-				">Danh sách sinh viên</a></li>
+				<li><a class="<?php echo check_current_mod('admin','add'); ?>" href="?act=admin&mod=add">Add User</a></li>
+				<li><a class="<?php echo check_current_mod('admin',''); ?>" href="?act=admin
+				">List User</a></li>
+				<li><a class="<?php echo check_current_mod('student','add'); ?>" href="?act=student&mod=add">Add Student</a></li>
+				<li><a class="<?php echo check_current_mod('student',''); ?>" href="?act=student
+				">List Student</a></li>
 			</ul>
 		</li>
 		<?php } ?>

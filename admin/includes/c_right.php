@@ -1,25 +1,25 @@
 <?php
 	switch ($_GET['act']) {
 		case 'login':
-			if($_GET['mod']=="doimatkhau"){
-				include("modules/login/doimatkhau.php");
+			if($_GET['mod']=="changePassword"){
+				include("modules/login/changePassword.php");
 			}
 			else if($_GET['mod']=="logout"){
 				include("modules/login/logout.php");
 			}
 			break;
-		case 'chuyennganh':
-			if($_GET['mod']=="them"){
-				include("modules/chuyennganh/them.php");
+		case 'faculty':
+			if($_GET['mod']=="add"){
+				include("modules/faculty/add.php");
 			}
-			elseif($_GET['mod']=="sua"){
-				include("modules/chuyennganh/sua.php");
+			elseif($_GET['mod']=="edit"){
+				include("modules/faculty/edit.php");
 			}
-			elseif($_GET['mod']=="xoa"){
-				include("modules/chuyennganh/xoa.php");
+			elseif($_GET['mod']=="delete"){
+				include("modules/faculty/delete.php");
 			}
 			else{
-				include("modules/chuyennganh/danhsach.php");
+				include("modules/faculty/list.php");
 			}
 			break;
 		case 'doan':
@@ -36,23 +36,23 @@
 				include("modules/doan/danhsach.php");
 			}
 			break;
-		case 'giaovien':
-			if($_GET['mod']=="them"){
-				include("modules/giaovien/them.php");
+		case 'admin':
+			if($_GET['mod']=="add"){
+				include("modules/admin/add.php");
 			}
-			elseif($_GET['mod']=="sua"){
-				include("modules/giaovien/sua.php");
+			elseif($_GET['mod']=="edit"){
+				include("modules/admin/edit.php");
 			}
-			elseif($_GET['mod']=="xoa"){
-				include("modules/giaovien/xoa.php");
+			elseif($_GET['mod']=="delete"){
+				include("modules/admin/delete.php");
 			}
 			else{
-				include("modules/giaovien/danhsach.php");
+				include("modules/admin/list.php");
 			}
 			break;
 		case 'hedaotao':
-			if($_GET['mod']=="them"){
-				include("modules/hedaotao/them.php");
+			if($_GET['mod']=="add"){
+				include("modules/hedaotao/add.php");
 			}
 			elseif($_GET['mod']=="sua"){
 				include("modules/hedaotao/sua.php");
@@ -106,18 +106,18 @@
 				include("modules/nhomdoan/danhsach.php");
 			}
 			break;
-		case 'sinhvien':
-			if($_GET['mod']=="them"){
-				include("modules/sinhvien/them.php");
+		case 'student':
+			if($_GET['mod']=="add"){
+				include("modules/student/add.php");
 			}
-			elseif($_GET['mod']=="sua"){
-				include("modules/sinhvien/sua.php");
+			elseif($_GET['mod']=="edit"){
+				include("modules/student/edit.php");
 			}
-			elseif($_GET['mod']=="xoa"){
-				include("modules/sinhvien/xoa.php");
+			elseif($_GET['mod']=="delete"){
+				include("modules/student/delete.php");
 			}
 			else{	
-				include("modules/sinhvien/danhsach.php");
+				include("modules/student/list.php");
 			}
 			break;
 		case 'nhomtailieu':

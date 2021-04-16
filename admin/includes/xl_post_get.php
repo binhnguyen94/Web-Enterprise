@@ -5,17 +5,17 @@
 	if($_POST['changePassword']=="changePassword"){
 		include("modules/login/functionChangePassword.php");
 	}
-	if($_POST['themchuyennganh']=="themchuyennganh"){
-		include("modules/chuyennganh/thuchien_them.php");
+	if($_POST['addFaculty']=="addFaculty"){
+		include("modules/faculty/functionAdd.php");
 	}
-	if($_POST['suachuyennganh']=="suachuyennganh"){
-		include("modules/chuyennganh/thuchien_sua.php");
+	if($_POST['editFaculty']=="editFaculty"){
+		include("modules/faculty/functionEdit.php");
 	}
-	if($_POST['themgiaovien']=="themgiaovien"){
-		include("modules/giaovien/thuchien_them.php");
+	if($_POST['addUser']=="addUser"){
+		include("modules/admin/functionAdd.php");
 	}
-	if($_POST['suagiaovien']=="suagiaovien"){
-		include("modules/giaovien/thuchien_sua.php");
+	if($_POST['editAdmin']=="editAdmin"){
+		include("modules/admin/functionEdit.php");
 	}
 	if($_POST['themhedaotao']=="themhedaotao"){
 		include("modules/hedaotao/thuchien_them.php");
@@ -41,11 +41,11 @@
 	if($_POST['suanhomdoan']=="suanhomdoan"){
 		include("modules/nhomdoan/thuchien_sua.php");
 	}
-	if($_POST['themsinhvien']=="themsinhvien"){
-		include("modules/sinhvien/thuchien_them.php");
+	if($_POST['addStudent']=="addStudent"){
+		include("modules/student/functionAdd.php");
 	}
-	if($_POST['suasinhvien']=="suasinhvien"){
-		include("modules/sinhvien/thuchien_sua.php");
+	if($_POST['editStudent']=="editStudent"){
+		include("modules/student/functionEdit.php");
 	}
 	if($_POST['themnhomtailieu']=="themnhomtailieu"){
 		include("modules/nhomtailieu/thuchien_them.php");

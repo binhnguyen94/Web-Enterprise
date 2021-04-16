@@ -9,10 +9,7 @@
 <?php
 	ini_set('display_errors', 0);
 	include("../includes/connection.php");
-	if($_GET['id_lophoc']){
-		$sql="select LH.ten as 'tenlophoc', SV.* from tbl_sinhvien SV inner join tbl_lophoc LH on SV.id_lophoc=LH.id where LH.id=$_GET[id_lophoc]";
-	}
-	else $sql="select LH.ten as 'tenlophoc', SV.* from tbl_student SV inner join tbl_lophoc LH on SV.id_faculty=LH.id";
+	$sql="select * from tbl_student order by studentID desc";
 	$qr=mysql_query($sql);
 ?>
 	<table border="0" width="100%">
@@ -26,7 +23,6 @@
 		<tr>
 			<td style="width:5%; text-align:center; "><b>STT</b></td>
 			<td style="width:20%; text-align:center;"><b>Mã sinh viên</b></td>
-			<td style="width:20%; text-align:center;"><b>Lớp học</b></td>
 			<td style="width:20%; text-align:center;"><b>Họ tên</b></td>
 			<td style="width:15%; text-align:center;"><b>Ngày sinh</b></td>
 			<td style="width:10%; text-align:center;"><b>Điện thoại</b></td>
@@ -40,7 +36,6 @@
 					<tr>
 						<td style='text-align:center;'>$i</td>
 						<td>$kq[studentID]</td>
-						<td>$kq[tenlophoc]</td>
 						<td>$kq[fullname]</td>
 						<td>$kq[dob]</td>
 						<td>$kq[phoneNum]</td>
