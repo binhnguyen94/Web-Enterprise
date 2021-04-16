@@ -22,18 +22,18 @@
 				include("modules/faculty/list.php");
 			}
 			break;
-		case 'doan':
-			if($_GET['mod']=="xoa"){
-				include("modules/doan/xoa.php");
+		case 'document':
+			if($_GET['mod']=="delete"){
+				include("modules/document/delete.php");
 			}
 			elseif($_GET['mod']=="duyetdoan"){
-				include("modules/doan/duyetdoan.php");
+				include("modules/document/duyetdoan.php");
 			}
 			elseif($_GET['mod']=="xemtomtat"){
-				include("modules/doan/xemtomtat.php");
+				include("modules/document/xemtomtat.php");
 			}
 			else{
-				include("modules/doan/danhsach.php");
+				include("modules/document/list.php");
 			}
 			break;
 		case 'admin':
@@ -50,60 +50,18 @@
 				include("modules/admin/list.php");
 			}
 			break;
-		case 'hedaotao':
+		case 'groupDoc':
 			if($_GET['mod']=="add"){
-				include("modules/hedaotao/add.php");
+				include("modules/groupDoc/add.php");
 			}
-			elseif($_GET['mod']=="sua"){
-				include("modules/hedaotao/sua.php");
+			elseif($_GET['mod']=="edit"){
+				include("modules/groupDoc/edit.php");
 			}
-			elseif($_GET['mod']=="xoa"){
-				include("modules/hedaotao/xoa.php");
-			}
-			else{	
-				include("modules/hedaotao/danhsach.php");
-			}
-			break;
-		case 'khoahoc':
-			if($_GET['mod']=="them"){
-				include("modules/khoahoc/them.php");
-			}
-			elseif($_GET['mod']=="sua"){
-				include("modules/khoahoc/sua.php");
-			}
-			elseif($_GET['mod']=="xoa"){
-				include("modules/khoahoc/xoa.php");
+			elseif($_GET['mod']=="delete"){
+				include("modules/groupDoc/delete.php");
 			}
 			else{	
-				include("modules/khoahoc/danhsach.php");
-			}
-			break;
-		case 'lophoc':
-			if($_GET['mod']=="them"){
-				include("modules/lophoc/them.php");
-			}
-			elseif($_GET['mod']=="sua"){
-				include("modules/lophoc/sua.php");
-			}
-			elseif($_GET['mod']=="xoa"){
-				include("modules/lophoc/xoa.php");
-			}
-			else{	
-				include("modules/lophoc/danhsach.php");
-			}
-			break;
-		case 'nhomdoan':
-			if($_GET['mod']=="them"){
-				include("modules/nhomdoan/them.php");
-			}
-			elseif($_GET['mod']=="sua"){
-				include("modules/nhomdoan/sua.php");
-			}
-			elseif($_GET['mod']=="xoa"){
-				include("modules/nhomdoan/xoa.php");
-			}
-			else{	
-				include("modules/nhomdoan/danhsach.php");
+				include("modules/groupDoc/list.php");
 			}
 			break;
 		case 'student':

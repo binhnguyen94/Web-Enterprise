@@ -6,5 +6,5 @@
 	unlink("../upload/".$tv2['document']);
 	$sql="delete from tbl_document where id=$id";
 	mysql_query($sql);
-	redirect("?act=doan");
+	redirect("?act=document");
 ?>

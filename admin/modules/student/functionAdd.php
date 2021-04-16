@@ -57,26 +57,25 @@ if( $_FILES['file']['tmp_name']){
       }
     }
   }
-  redirect("?act=sinhvien&mod=them");
+  redirect("?act=student&mod=add");
 }
 else{
-	$id_lophocs=(int)$_POST['id_lophocs'];
-  $tendangnhaps=trim($_POST['tendangnhaps']);
-  $matkhaus=trim($_POST['matkhaus']);
-  $hotens=trim($_POST['hotens']);
-  $ngaysinhs=trim($_POST['ngaysinhs']);
-  $dienthoais=trim($_POST['dienthoais']);
-  $emails=trim($_POST['emails']);
-  if($id_lophocs!="" & $tendangnhaps!="" & $matkhaus!="" & $hotens!="" & $ngaysinhs!="" & $dienthoais!="" & $emails!=""){
-		$matkhaus=md5($matkhaus);
-		$sql="Insert into tbl_student value('$tendangnhaps', '$matkhaus', $id_lophocs, '$hotens', '$ngaysinhs', '$dienthoais', '$emails')";
+  $username=trim($_POST['username']);
+  $password=trim($_POST['password']);
+  $fullname=trim($_POST['fullname']);
+  $dob=trim($_POST['dob']);
+  $phoneNum=trim($_POST['phoneNum']);
+  $email=trim($_POST['email']);
+  if($username!="" & $password!="" & $fullname!="" & $dob!="" & $phoneNum!="" & $email!=""){
+		$password=md5($password);
+		$sql="Insert into tbl_student value('$username', '$password', '$fullname', '$dob', '$phoneNum', '$email')";
 		mysql_query($sql);
-		$_SESSION['id_faculty']=$id_lophocs;
-		notice("Thêm thông tin thành công");
-		redirect("?act=sinhvien&mod=them");
+		$_SESSION['id_faculty']=$studentID;
+		notice("Successfully added information");
+		redirect("?act=student&mod=add");
 	}
 	else{
-		notice("Không được bỏ trống dữ liệu (*)!");
+		notice("Do not leave the data blank (*)!");
 		previousPage();
 	}
 }

@@ -5,7 +5,7 @@
 		<input type="hidden" name="act" value="student" />
 		<input placeholder='Enter Name Student' name="name"/>
 		<input type="submit" value="Search" class="button">
-		<a target="_blank" href="indanhsachsv.php?">
+		<a target="_blank" href="printStudent.php?">
 			<input type="button" value="Print" class="button">
 		</a>
 	</form>

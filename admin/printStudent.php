@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>In danh sách sinh viên</title>
+<title>Print List Student</title>
 </head>
 <body onload="window.print();">
 <?php
@@ -15,17 +15,17 @@
 	<table border="0" width="100%">
 		<tr>
 			<td style="width:30%; text-align:left;"></td>
-			<td style="width:40%; text-align:center;"><b>DANH SÁCH SINH VIÊN</b></td>
-			<td style="width:30%; text-align:right;"><b>Ngày in:</b> <?php echo date('Y-m-d'); ?></td>
+			<td style="width:40%; text-align:center;"><b>LIST STUDENT</b></td>
+			<td style="width:30%; text-align:right;"><b>Date Print:</b> <?php echo date('Y-m-d'); ?></td>
 		</tr>
 	</table><br>
 	<table border="1" width="100%" cellspacing="0">
 		<tr>
-			<td style="width:5%; text-align:center; "><b>STT</b></td>
-			<td style="width:20%; text-align:center;"><b>Mã sinh viên</b></td>
-			<td style="width:20%; text-align:center;"><b>Họ tên</b></td>
-			<td style="width:15%; text-align:center;"><b>Ngày sinh</b></td>
-			<td style="width:10%; text-align:center;"><b>Điện thoại</b></td>
+			<td style="width:5%; text-align:center; "><b>No</b></td>
+			<td style="width:20%; text-align:center;"><b>Student ID</b></td>
+			<td style="width:20%; text-align:center;"><b>Fullname</b></td>
+			<td style="width:15%; text-align:center;"><b>Birthday</b></td>
+			<td style="width:10%; text-align:center;"><b>Phone Number</b></td>
 			<td style="width:10%; text-align:center;"><b>Email</b></td>
 		</tr>
 		<?php

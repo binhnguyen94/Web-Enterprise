@@ -30,21 +30,12 @@
 		</li>
 		<?php if($_SESSION['roles']=="Admin"){ ?>
 		<li>
-			<a href="#" class="nav-top-item <?php echo check_current_act('khoahoc').check_current_act('hedaotao').check_current_act('faculty').check_current_act('lophoc').check_current_act('admin').check_current_act('student'); ?>">
+			<a href="#" class="nav-top-item <?php echo check_current_act('faculty').check_current_act('admin').check_current_act('student'); ?>">
 			General Management</a>
 			<ul>
-				<li><a class="<?php echo check_current_mod('khoahoc','them'); ?>" href="?act=khoahoc&mod=them">Thêm khóa học</a></li>
-				<li><a class="<?php echo check_current_mod('khoahoc',''); ?>" href="?act=khoahoc
-				">Danh sách khóa học</a></li>
-				<li><a class="<?php echo check_current_mod('hedaotao','them'); ?>" href="?act=hedaotao&mod=them">Thêm hệ đào tạo</a></li>
-				<li><a class="<?php echo check_current_mod('hedaotao',''); ?>" href="?act=hedaotao
-				">Danh sách hệ đào tạo</a></li>
 				<li><a class="<?php echo check_current_mod('faculty','add'); ?>" href="?act=faculty&mod=add">Add Faculty</a></li>
 				<li><a class="<?php echo check_current_mod('faculty',''); ?>" href="?act=faculty
 				">List Faculty</a></li>
-				<li><a class="<?php echo check_current_mod('lophoc','them'); ?>" href="?act=lophoc&mod=them">Thêm lớp học</a></li>
-				<li><a class="<?php echo check_current_mod('lophoc',''); ?>" href="?act=lophoc
-				">Danh sách lớp học</a></li>
 				<li><a class="<?php echo check_current_mod('admin','add'); ?>" href="?act=admin&mod=add">Add User</a></li>
 				<li><a class="<?php echo check_current_mod('admin',''); ?>" href="?act=admin
 				">List User</a></li>
@@ -55,17 +46,17 @@
 		</li>
 		<?php } ?>
 		<li>
-			<a href="#" class="nav-top-item <?php echo check_current_act('nhomdoan'). check_current_act('doan'); ?>">
-			Document Group Management</a>
+			<a href="#" class="nav-top-item <?php echo check_current_act('groupDoc'). check_current_act('document'); ?>">
+			Document Management</a>
 			<ul>
 				<?php if($_SESSION['roles']=="Admin"){ ?>
-				<li><a class="<?php echo check_current_mod('nhomdoan','them'); ?>" href="?act=nhomdoan&mod=them">Thêm nhóm tài liệu</a></li>
-				<li><a class="<?php echo check_current_mod('nhomdoan',''); ?>" href="?act=nhomdoan
-				">Danh sách nhóm tài liệu</a></li>
+				<li><a class="<?php echo check_current_mod('groupDoc','add'); ?>" href="?act=groupDoc&mod=add">Add Group Document</a></li>
+				<li><a class="<?php echo check_current_mod('groupDoc',''); ?>" href="?act=groupDoc
+				">List Group Document</a></li>
 				<?php } ?>
 				<li>
-					<a href="?act=doan" class="<?php echo check_current_mod('doan',''); ?>">
-					Danh sách tài liệu</a>
+					<a href="?act=document" class="<?php echo check_current_mod('document',''); ?>">
+					List Document</a>
 				</li>
 			</ul>
 		</li>

@@ -17,29 +17,11 @@
 	if($_POST['editAdmin']=="editAdmin"){
 		include("modules/admin/functionEdit.php");
 	}
-	if($_POST['themhedaotao']=="themhedaotao"){
-		include("modules/hedaotao/thuchien_them.php");
+	if($_POST['addGroupDoc']=="addGroupDoc"){
+		include("modules/groupDoc/functionAdd.php");
 	}
-	if($_POST['suahedaotao']=="suahedaotao"){
-		include("modules/hedaotao/thuchien_sua.php");
-	}
-	if($_POST['themkhoahoc']=="themkhoahoc"){
-		include("modules/khoahoc/thuchien_them.php");
-	}
-	if($_POST['suakhoahoc']=="suakhoahoc"){
-		include("modules/khoahoc/thuchien_sua.php");
-	}
-	if($_POST['themlophoc']=="themlophoc"){
-		include("modules/lophoc/thuchien_them.php");
-	}
-	if($_POST['sualophoc']=="sualophoc"){
-		include("modules/lophoc/thuchien_sua.php");
-	}
-	if($_POST['themnhomdoan']=="themnhomdoan"){
-		include("modules/nhomdoan/thuchien_them.php");
-	}
-	if($_POST['suanhomdoan']=="suanhomdoan"){
-		include("modules/nhomdoan/thuchien_sua.php");
+	if($_POST['editGroupDoc']=="editGroupDoc"){
+		include("modules/groupDoc/functionEdit.php");
 	}
 	if($_POST['addStudent']=="addStudent"){
 		include("modules/student/functionAdd.php");
