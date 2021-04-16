@@ -73,7 +73,11 @@ if($_GET['id_faculty']){
 elseif($_GET['name']){
 	$sql="select LH.ten as 'tenlophoc', SV.* from tbl_student SV inner join tbl_lophoc LH on SV.id_faculty=LH.id where SV.fullname like'%$_GET[name]%' ";
 }
+<<<<<<< HEAD
 else $sql="select LH.ten as 'tenlophoc', SV.* from tbl_student SV inner join tbl_lophoc LH on SV.id_faculty=LH.id";
+=======
+else $sql="select LH.ten as 'tenlophoc', SV.* from tbl_sinhvien SV inner join tbl_lophoc LH on SV.id_lophoc=LH.id";
+>>>>>>> 500c923be77cd50f0e5102a7778b5a2c5bb856d8
 $qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 $i=0;
 while ($kq=mysql_fetch_array($qr)) {

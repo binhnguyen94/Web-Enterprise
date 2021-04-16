@@ -8,9 +8,9 @@
 <body onload="window.print();">
 <?php
 	ini_set('display_errors', 0);
-	include("../includes/ketnoi.php");
-	if($_GET['id_faculty']){
-		$sql="select LH.ten as 'tenlophoc', SV.* from tbl_student SV inner join tbl_lophoc LH on SV.id_faculty=LH.id where LH.id=$_GET[id_faculty]";
+	include("../includes/connection.php");
+	if($_GET['id_lophoc']){
+		$sql="select LH.ten as 'tenlophoc', SV.* from tbl_sinhvien SV inner join tbl_lophoc LH on SV.id_lophoc=LH.id where LH.id=$_GET[id_lophoc]";
 	}
 	else $sql="select LH.ten as 'tenlophoc', SV.* from tbl_student SV inner join tbl_lophoc LH on SV.id_faculty=LH.id";
 	$qr=mysql_query($sql);

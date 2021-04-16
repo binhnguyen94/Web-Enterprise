@@ -48,7 +48,7 @@
 				<td class='tieudeketqua'>Trạng thái</td>
 			</tr>
 		<?php
-			$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.* from tbl_document DA inner join tbl_groupDoc NDA on DA.groupDocID=NDA.id inner join tbl_falcuty CN on DA.id_faculty=CN.id where DA.studentID='$_SESSION[studentID]' order by DA.id desc ";
+			$sql="select NDA.ten as 'tennhomdoan', CN.ten as 'tenchuyennganh', DA.* from tbl_doan DA inner join tbl_nhomdoan NDA on DA.id_nhomdoan=NDA.id inner join tbl_chuyennganh CN on DA.id_chuyennganh=CN.id where DA.masinhvien='$_SESSION[masinhvien]' order by DA.id desc ";
 			$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 			$i=0;
 			while ($arr=mysql_fetch_array($qr)) {
@@ -119,8 +119,18 @@
 			<tr>
 				<td></td>
 				<td>
+				<?php
+					if(array_key_exists('submit',$_POST)){
+						$msg= $masinhvien+"has submit file";
+						$sql = "SELECT email FROM tbl_admin where roles='Coordinator'";
+						$qr=mysql_query($sql);
+						foreach ($q as $qr){
+							mail($q,"New submition",$msg);
+						}
+					}
+				?>
 					<input type="hidden" name="thuchien_guidoan" value="thuchien_guidoan">
-					<input type="submit" value="Gửi tài liệu " class='button-form'>
+					<input type="submit" name='submit' value="Gửi tài liệu " class='button-form'>
 				</td>
 			</tr>
 		</table>

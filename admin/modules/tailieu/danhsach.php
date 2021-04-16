@@ -12,8 +12,13 @@
 		<td>Chức năng</td>
 	</tr>
 <?php
+<<<<<<< HEAD
 $adminID=$_SESSION['adminID'];
 $sql="select NTL.ten as 'tennhomtailieu', CN.ten as 'tenchuyennganh', TL.* from tbl_tailieu TL inner join tbl_nhomtailieu NTL on TL.id_nhomtailieu=NTL.id inner join tbl_falcuty CN on TL.id_faculty=CN.id where TL.adminID='$adminID' order by TL.id desc";
+=======
+$magiaovien=$_SESSION['magiaovien'];
+$sql="select NTL.ten as 'tennhomtailieu', CN.ten as 'tenchuyennganh', TL.* from tbl_tailieu TL inner join tbl_nhomtailieu NTL on TL.id_nhomtailieu=NTL.id inner join tbl_chuyennganh CN on TL.id_chuyennganh=CN.id where TL.magiaovien='$magiaovien' order by TL.id desc";
+>>>>>>> 500c923be77cd50f0e5102a7778b5a2c5bb856d8
 $qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 $i=0;
 while ($kq=mysql_fetch_array($qr)) {

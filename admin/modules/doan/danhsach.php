@@ -51,7 +51,8 @@
 				}
 			?>
 		</select>
-		<a target="_blank" href="indanhsachda.php?<?php echo 'id_hedaotao='.$_GET[id_hedaotao].'&id_khoahoc='.$_GET[id_khoahoc].'&id_faculty='.$_GET[id_faculty]; ?>"><input type="button" value="In danh sách" class="button"></a>
+		<a target="_blank" href="indanhsachda.php?<?php echo 'id_hedaotao='.$_GET[id_hedaotao].'&id_khoahoc='.$_GET[id_khoahoc].'&id_lophoc='.$_GET[id_lophoc]; ?>"><input type="button" value="In danh sách" class="button"></a>
+		<a target="_blank" href="downloadzip.php?<?php  echo 'id_hedaotao='.$_GET[id_hedaotao].'&id_khoahoc='.$_GET[id_khoahoc].'&id_lophoc='.$_GET[id_lophoc]; ?>"><input type="button" value="doanload zip" class="button"></a>
 	</form>
 </div>
 <table>
