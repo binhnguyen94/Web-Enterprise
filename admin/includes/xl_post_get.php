@@ -29,16 +29,4 @@
 	if($_POST['editStudent']=="editStudent"){
 		include("modules/student/functionEdit.php");
 	}
-	if($_POST['themnhomtailieu']=="themnhomtailieu"){
-		include("modules/nhomtailieu/thuchien_them.php");
-	}
-	if($_POST['suanhomtailieu']=="suanhomtailieu"){
-		include("modules/nhomtailieu/thuchien_sua.php");
-	}
-	if($_POST['themtailieu']=="themtailieu"){
-		include("modules/tailieu/thuchien_them.php");
-	}
-	if($_POST['suatailieu']=="suatailieu"){
-		include("modules/tailieu/thuchien_sua.php");
-	}
 ?>

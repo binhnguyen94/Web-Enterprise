@@ -26,11 +26,11 @@
 			if($_GET['mod']=="delete"){
 				include("modules/document/delete.php");
 			}
-			elseif($_GET['mod']=="duyetdoan"){
-				include("modules/document/duyetdoan.php");
+			elseif($_GET['mod']=="approvedDoc"){
+				include("modules/document/approvedDoc.php");
 			}
-			elseif($_GET['mod']=="xemtomtat"){
-				include("modules/document/xemtomtat.php");
+			elseif($_GET['mod']=="seeSummary"){
+				include("modules/document/seeSummary.php");
 			}
 			else{
 				include("modules/document/list.php");

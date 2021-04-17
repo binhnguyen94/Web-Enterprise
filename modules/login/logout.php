@@ -1,5 +1,5 @@
 <?php
 	unset($_SESSION['studentID']);
-	unset($_SESSION['hoten_sv']);
+	unset($_SESSION['fullname_stu']);
 	redirect("index.php");
 ?>

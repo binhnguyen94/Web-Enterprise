@@ -1,32 +1,32 @@
 <ul>
 	<li>
-		<a href="index.php">Trang chủ</a>
+		<a href="index.php">Homepage</a>
 	</li>
 	<li>
-		<a href="#">Tài liệu theo chuyên ngành</a>
+		<a href="#">Faculty's Document</a>
 		<ul>
 		<?php
-			$sql="select * from tbl_falcuty order by id desc";
+			$sql="select * from tbl_faculty order by id desc";
 			$qr=mysql_query($sql);
 			while ($kq=mysql_fetch_array($qr)) {
-				echo "<li><a href='?act=tailieu&id_faculty=$kq[id]'>$kq[ten]</a></li>";
+				echo "<li><a href='?act=document&id_faculty=$kq[id]'>$kq[name]</a></li>";
 			}
 		?>
 		</ul>
 	</li>
 	<li>
-		<a href="#">Nhóm tài liệu</a>
+		<a href="#">Group Document</a>
 		<ul>
 		<?php
-			$sql="select * from tbl_nhomtailieu order by id desc";
+			$sql="select * from tbl_groupDoc order by id desc";
 			$qr=mysql_query($sql);
 			while ($kq=mysql_fetch_array($qr)) {
-				echo "<li><a href='?act=tailieu&id_nhomtailieu=$kq[id]'>$kq[ten]</a></li>";
+				echo "<li><a href='?act=document&id_groupDoc=$kq[id]'>$kq[name]</a></li>";
 			}
 		?>
 		</ul>
 	</li>
 	<li>
-		<a href="?act=doan">Quản lý tài liệu</a>
+		<a href="?act=document">Document Management</a>
 	</li>
 </ul>

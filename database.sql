@@ -215,7 +215,7 @@ INSERT INTO `tbl_groupDoc` (`id`, `name`) VALUES
 CREATE TABLE IF NOT EXISTS `tbl_student` (
   `studentID` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
-  -- `id_lophoc` int(11) NOT NULL,
+  `id_faculty` int(11) NOT NULL,
   `fullname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `dob` date NOT NULL,
   `phoneNum` varchar(15) COLLATE utf8_unicode_ci NOT NULL,

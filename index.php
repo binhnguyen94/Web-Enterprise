@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
-<title>Website quản lý tài liệu và tài liệu trực tuyến</title>
+<title>Website Document Management Online</title>
 <link type="text/css" rel="stylesheet" href="templates/style/css.css" />
 <script type="text/javascript" src="templates/script/jquery.js"></script>
 <script type="text/javascript" src="templates/script/superfish.js"></script>
@@ -34,29 +34,21 @@
     <div id="container">
         <div id="leftContent">
             <div class="module">
-                <h3>Tìm kiếm tài liệu</h3>
+                <h3>Search Document</h3>
                 <div style="padding-top:3px">
                     <form method="get" action="index.php">
-                        <input type="hidden" name="act" value="tailieu" />
-                        <input name="key" placeholder='Từ khóa tìm kiếm' class='text-formlogin'/><br/>
-                        <center><input value=" Tìm kiếm " type="submit" class='button-form'></center>
+                        <input type="hidden" name="act" value="document" />
+                        <input name="key" placeholder='Search Keyword' class='text-formlogin'/><br/>
+                        <center><input value=" Search " type="submit" class='button-form'></center>
                     </form>
                 </div>
             </div>
             <div class="module">
-                <h3>Đăng nhập</h3>
+                <h3>Student Login</h3>
                 <div>
                     <?php
-                        require_once("modules/dangnhap/dangnhap.php");
+                        require_once("modules/login/studentLogin.php");
                     ?>
-                </div>
-            </div>
-            <div class="module">
-                <h3>Quảng cáo</h3>
-                <div>
-                    <a href=""><img width="100%" src="templates/image/qc1.gif"/></a>
-                    <a href=""><img width="100%" src="templates/image/qc2.png"/></a>
-                    <a href=""><img width="100%" src="templates/image/qc3.jpg"/></a>
                 </div>
             </div>
         </div>
@@ -66,11 +58,11 @@
 			?>
         </div>
     </div>
-    <div id="footer">
+    <!-- <div id="footer">
         <div class="copyright">
-            <p class="footer-i">Copyright © Xây dựng website quản lý tài liệu và tài liệu trực tuyến</p>
+            <p class="footer-i">Copyright © Building Website Document Management Online</p>
         </div>
-    </div>
+    </div> -->
     <script type="text/javascript">
 		$(function(){
 		$(window).scroll(function () {
@@ -83,7 +75,7 @@
 		});
 	</script>
 	<div id="goTop">
-		<img src="templates/image/top_page.png"/>Lên
+		<img src="templates/image/top_page.png"/>Up
 	</div>
 </body>
 </html>

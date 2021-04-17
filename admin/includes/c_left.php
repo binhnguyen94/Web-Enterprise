@@ -49,7 +49,7 @@
 			<a href="#" class="nav-top-item <?php echo check_current_act('groupDoc'). check_current_act('document'); ?>">
 			Document Management</a>
 			<ul>
-				<?php if($_SESSION['roles']=="Admin"){ ?>
+				<?php if($_SESSION['roles']=="Admin" || $_SESSION['roles']=="Coordinator"){ ?>
 				<li><a class="<?php echo check_current_mod('groupDoc','add'); ?>" href="?act=groupDoc&mod=add">Add Group Document</a></li>
 				<li><a class="<?php echo check_current_mod('groupDoc',''); ?>" href="?act=groupDoc
 				">List Group Document</a></li>
@@ -60,19 +60,5 @@
 				</li>
 			</ul>
 		</li>
-		<?php if($_SESSION['roles']=="Admin" || $_SESSION['roles']=="Coordinator" ){ ?>
-		<li>
-			<a href="#" class="nav-top-item <?php echo check_current_act('nhomtailieu').check_current_act('tailieu'); ?>">
-			Document Source Management</a>
-			<ul>
-				<li><a class="<?php echo check_current_mod('nhomtailieu','them'); ?>" href="?act=nhomtailieu&mod=them">Thêm nhóm tài liệu</a></li>
-				<li><a class="<?php echo check_current_mod('nhomtailieu',''); ?>" href="?act=nhomtailieu
-				">Danh sách nhóm tài liệu</a></li>
-				<li><a class="<?php echo check_current_mod('tailieu','them'); ?>" href="?act=tailieu&mod=them">Thêm tài liệu</a></li>
-				<li><a class="<?php echo check_current_mod('tailieu',''); ?>" href="?act=tailieu
-				">Danh sách tài liệu</a></li>
-			</ul>
-		</li>
-		<?php } ?>
 	</ul>
 </div>

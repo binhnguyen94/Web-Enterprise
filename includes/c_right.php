@@ -2,26 +2,23 @@
 	<div class="main">
 	<?php
 		switch ($_GET['act']) {
-			case 'tailieu':
-				require_once("modules/tailieu/danhsachtailieu.php");
+			case 'listDocument':
+				require_once("modules/listDocument/listDoc.php");
 				break;
-			case 'chitiettailieu':
-				require_once("modules/tailieu/chitiettailieu.php");
+			case 'documentDetail':
+				require_once("modules/listDocument/detailDoc.php");
 				break;
-			case 'capnhattaikhoan':
-				require_once("modules/dangnhap/capnhattaikhoan.php");
+			case 'updateAccount':
+				require_once("modules/login/updateAccount.php");
 				break;
-			case 'dangxuat':
-				require_once("modules/dangnhap/dangxuat.php");
+			case 'logout':
+				require_once("modules/login/logout.php");
 				break;
-			case 'dangky':
-				require_once("modules/dangnhap/dangky.php");
-				break;
-			case 'doan':
-				require_once("modules/doan/doan.php");
+			case 'document':
+				require_once("modules/document/document.php");
 				break;
 			default:
-				require_once("modules/trangchu/trangchu.php");
+				require_once("modules/homepage/homepage.php");
 				break;
 		}
 	?>

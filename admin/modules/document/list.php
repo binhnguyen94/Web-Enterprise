@@ -5,7 +5,7 @@
 		<input placeholder='Enter name document' name="name"/>
 		<input type="submit" value="Search" class="button">
 		<a target="_blank" href="printDocument.php?"><input type="button" value="Print" class="button"></a>
-		<a target="_blank" href="downloadzip.php?<?php  echo 'id_hedaotao='.$_GET[id_hedaotao].'&id_khoahoc='.$_GET[id_khoahoc].'&id_lophoc='.$_GET[id_lophoc]; ?>"><input type="button" value="download zip" class="button"></a>
+		<a target="_blank" href="downloadzip.php?"><input type="button" value="download zip" class="button"></a>
 	</form>
 </div>
 <table>
@@ -34,6 +34,7 @@ elseif($_GET['name']){
 else{
 	$sql="select NDA.name as 'nameGroup', CN.name as 'nameFaculty', DA.*, SV.fullname from tbl_document DA inner join tbl_groupDoc NDA on DA.id_groupDoc=NDA.id inner join tbl_faculty CN on DA.id_faculty=CN.id inner join tbl_student SV on SV.studentID=DA.studentID $morong1 order by DA.id desc";
 }
+$document = $_SESSION['image'];
 $qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 $i=0;
 while ($kq=mysql_fetch_array($qr)) {
@@ -47,7 +48,7 @@ while ($kq=mysql_fetch_array($qr)) {
 		echo "<td><a href='../upload/$kq[document]' target='_blank'>".$kq['title']."</a></td>";
 		echo "<td>".$kq['uploadDate']."</td>";
 		echo "<td>".$kq['status'];
-		if($kq['status']!="Unapproved"){
+		if($kq['status']!="Waiting"){
 			$tv="select fullname from tbl_admin where adminID='$kq[adminID]'";
 			$tv1=mysql_query($tv);
 			$tv2=mysql_fetch_array($tv1);
@@ -55,9 +56,9 @@ while ($kq=mysql_fetch_array($qr)) {
 		}
 		else{
 			echo "</td>";
-			echo "<td>[<a href='?act=document&mod=approvedDoc&id=$kq[id]&status=Approved'>Approved Document</a>] | [<a href='?act=document&mod=approvedDoc&id=$kq[id]&status=Not approved'>Not approved</a>] | ";
+			echo "<td>[<a href='?act=document&mod=approvedDoc&id=$kq[id]&status=Approved'>Approved</a>] | [<a href='?act=document&mod=approvedDoc&id=$kq[id]&status=Unapproved'>Unapproved</a>] | ";
 		}
-			echo "[<a href='?act=document&mod=delete&id=$kq[id]' onclick='return checkDel()'>Delete</a>] | [<a href='?act=document&mod=seeSummary&id=$kq[id]'>See summary</a>]</td>";
+			echo "[<a href='?act=document&mod=delete&id=$kq[id]' onclick='return checkDel()'>Delete</a>] | [<a href='?act=document&mod=seeSummary&id=$kq[id]'>View</a>]</td>";
 			echo "<td><input name='evaluation".$kq[id]."' class='text-form'></td>";
 	echo "</tr>";
 }
