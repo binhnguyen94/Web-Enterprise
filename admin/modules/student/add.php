@@ -20,6 +20,20 @@
 		<td><input class="medium-input" name="fullname" /></td>
 	</tr>
 	<tr>
+		<td width="150px">Faculty(*) :</td>
+		<td>
+			<select name="id_faculty">
+			<?php
+				$sql="select id, name from tbl_faculty";
+				$qr=mysql_query($sql);
+				while ($arr=mysql_fetch_array($qr)) {
+					echo "<option value='$arr[id]'".(($_SESSION['id_faculty']==$arr['id'])?' selected':'').">$arr[name]</option>";
+				}
+			?>
+			</select>
+		</td>
+	</tr>
+	<tr>
 		<td>Birthday(*) :</td>
 		<td><input class="medium-input" type="date" name="dob" /></td>
 	</tr>

@@ -233,9 +233,9 @@ CREATE TABLE IF NOT EXISTS `tbl_student` (
 -- Dumping data for table `tbl_student`
 --
 
-INSERT INTO `tbl_student` (`studentID`, `password`, `fullname`, `dob`, `phoneNum`, `email`) VALUES
-('1131060418', 'e10adc3949ba59abbe56e057f20f883e', 'Trần Văn Tân', '1994-08-06', '0986333820', 'vantan@gmail.com'),
-('1131060489', '615ad206666f8086103305b8f77173f4', 'Nguyễn Thị Thắm', '1994-08-07', '0988934888', 'thitham@gmail.com');
+INSERT INTO `tbl_student` (`studentID`, `password`, `fullname`, `id_faculty`, `dob`, `phoneNum`, `email`) VALUES
+('1131060418', 'e10adc3949ba59abbe56e057f20f883e', 'Trần Văn Tân', 2, '1994-08-06', '0986333820', 'vantan@gmail.com'),
+('1131060489', '615ad206666f8086103305b8f77173f4', 'Nguyễn Thị Thắm', 1, '1994-08-07', '0988934888', 'thitham@gmail.com');
 
 -- --------------------------------------------------------
 
