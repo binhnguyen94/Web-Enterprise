@@ -40,7 +40,8 @@ INSERT INTO `tbl_faculty` (`id`, `name`) VALUES
 (1, 'IT'),
 (2, 'Business'),
 (3, 'Graphic Design'),
-(4, 'Marketing');
+(4, 'Marketing'),
+(5, 'Finance');
 
 -- --------------------------------------------------------
 
@@ -56,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `tbl_document` (
   `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `uploadDate` date NOT NULL,
   `document` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   `status` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `adminID` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
@@ -66,11 +68,12 @@ CREATE TABLE IF NOT EXISTS `tbl_document` (
 -- Dumping data for table `tbl_document`
 --
 
-INSERT INTO `tbl_document` (`id`, `id_groupDoc`, `id_faculty`, `studentID`, `title`, `uploadDate`, `document`, `status`, `adminID`, `description`) VALUES
-(1, 2, 1, '1131060418', 'Phần mềm quản lý điểm THPT', '2021-10-06', 'phan mem quan ly diem THPT.rar', 'Đã duyệt', 'giaovien', ''),
-(3, 3, 1, '1131060489', 'Đồ án xây dựng website bán hàng', '2021-10-07', 'do an.rar', 'Không được duyệt', '', ''),
-(4, 2, 2, '1131060418', 'Đồ án điện', '2021-12-10', 'Chrysanthemum.jpg', 'Chưa duyệt', '0', ''),
-(5, 1, 2, '1131060418', 'aaaaâ', '2021-12-28', 'Chrysanthemum.jpg', 'Đã duyệt', '', '');
+INSERT INTO `tbl_document` (`id`, `id_groupDoc`, `id_faculty`, `studentID`, `title`, `uploadDate`, `document`, `image`, `status`, `adminID`, `description`) VALUES
+(1, 1, 2, '1131060489', 'Marketing Methods', '2021-04-17', 'courseworks_coursework_2019_2020_Term_2_Level_6_COMP1787_term2_Collabs.2021-new.docx', 'quan-tri-marketing-la-gi.jpg','Unapproved', 0, 'afgrdtfghfgdsdasdafgj,hk.jh,jgm'),
+(2, 2, 1, '1131060489', 'Javascript', '2021-04-17', 'courseworks_coursework_2019_2020_Term_2_Level_6_COMP1787_term2_Collabs.2021-new.docx', '8c4eed15a33744e996461692464ebc7f.jpg', 'Approved', 0, 'aegrhtrjytu,jhghfgbfrge'),
+(3, 2, 1, '1131060418', 'Web developer', '2021-04-17', 'courseworks_coursework_2019_2020_Term_2_Level_6_COMP1787_term2_Collabs.2021-new.docx', 'react.png','Waiting', 0, 'bgfghfgdfsdascdv'),
+(4, 3, 1, '1131060418', 'PHP', '2021-04-17', 'courseworks_coursework_2019_2020_Term_2_Level_6_COMP1787_term2_Collabs.2021-new.docx', 'php.jpg', 'Approved', 0, 'efhjmngfvsfeca'),
+(5, 3, 3, '1131060489', 'Python', '2021-04-17', 'courseworks_coursework_2019_2020_Term_2_Level_6_COMP1787_term2_Collabs.2021-new.docx', 'vrvsrv.jpg', 'Waiting', 0, 'scdffjdrefwczdvdfwg');
 
 -- --------------------------------------------------------
 
@@ -96,7 +99,9 @@ CREATE TABLE IF NOT EXISTS `tbl_admin` (
 
 INSERT INTO `tbl_admin` (`adminID`, `password`, `id_faculty`, `fullname`, `dob`, `phoneNum`, `email`, `roles`) VALUES
 ('admin', 'e10adc3949ba59abbe56e057f20f883e', 1, 'Nguyễn Văn Duy', '1990-08-06', '0986333920', 'giaovien@gmail.com', 'Admin'),
-('giaovien', 'e10adc3949ba59abbe56e057f20f883e', 1, 'Nguyễn Đức Anh', '1989-08-07', '01234213622', 'ducanh@gmail.com', 'Coordinator');
+('giaovien', 'e10adc3949ba59abbe56e057f20f883e', 1, 'Nguyễn Đức Anh', '1989-08-07', '01234213622', 'ducanh@gmail.com', 'Coordinator'),
+('binh', 'e10adc3949ba59abbe56e057f20f883e', 2, 'Nguyễn Thái Bình', '1994-03-20', '0983465722', 'ntbinh200394@gmail.com', 'Marketing Manager'),
+('Thuong', 'e10adc3949ba59abbe56e057f20f883e', 4, 'Poly Dương', '1997-02-09', '0983726283', 'polyduong@gmail.com', 'Marketing Manager');
 
 -- --------------------------------------------------------
 
@@ -182,9 +187,10 @@ CREATE TABLE IF NOT EXISTS `tbl_groupDoc` (
 --
 
 INSERT INTO `tbl_groupDoc` (`id`, `name`) VALUES
-(1, 'Tìm hiểu và nghiên cứu'),
-(2, 'Xây dựng sản phẩm thực tế'),
-(3, 'Lập trình');
+(1, 'Research'),
+(2, 'Project'),
+(3, 'Programming'),
+(4, 'Java');
 
 -- --------------------------------------------------------
 

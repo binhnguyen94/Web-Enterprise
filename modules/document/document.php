@@ -147,3 +147,19 @@
 		<?php } ?>
 	</div>
 </div>
+<div class='list_productC'>
+	<h3>New Document</h3>
+		<ul class='productC'>
+		<?php
+			$sql="select * from tbl_document order by id desc limit 0,3";
+			$qr=mysql_query($sql);
+			while ($arrt=mysql_fetch_array($qr)) {
+				echo "<li>";
+					echo "<a href='?act=detailDoc&id=$arrt[id]'>
+						<p class='bg_title'><img src='upload/$arrt[image]' alt='$arrt[title]'/></p></a>";
+					echo "<a title='$arrt[title]' href='?act=detailDoc&id=$arrt[id]'><h2>$arrt[title]</h2></a>";
+				echo "</li>";
+			}
+		?>
+		</ul>
+</div>
