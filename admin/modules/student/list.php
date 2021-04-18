@@ -23,13 +23,10 @@
 	</tr>	
 
 <?php
-if($_GET['name']){
-	$name = $db -> escape_string($_GET['name']);
-	$sql= $db -> query("select * from tbl_student where '%{$name}%' like '%{$name}%' ");
-}
-else $sql="select * from tbl_student order by studentID desc";
+$sql="select * from tbl_student order by studentID desc";
 $qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 $i=0;
+ob_start();
 while ($kq=mysql_fetch_array($qr)) {
 	$i++;
 	echo "<tr>";
@@ -41,6 +38,12 @@ while ($kq=mysql_fetch_array($qr)) {
 		echo "<td>".$kq['email']."</td>";
 		echo "<td>[<a href='?act=student&mod=edit&id=$kq[studentID]'>Edit</a>] | [<a href='?act=student&mod=delete&id=$kq[studentID]' onclick='return checkDel()'>Delete</a>]</td>";
 	echo "</tr>";
+}
+if(isset($_POST['Search'])){
+	ob_end_clean();
+	ob_start();
+	$sf = trim($_POST['searchName']);
+	$qr = mysql_query("SELECT * FROM tbl_student where fullname like %sf%");
 }
 ?>
 </table>
