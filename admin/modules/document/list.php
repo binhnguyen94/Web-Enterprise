@@ -23,7 +23,7 @@
 	</tr>
 <?php
 $faculty_gv=$_SESSION['faculty_gv'];
-if($_SESSION['roles']=="Admin"){$morong=" "; $morong1="";}
+if($_SESSION['roles']=="Admin" || $_SESSION['roles']=="Coordinator"){$morong=" "; $morong1="";}
 else {$morong="DA.id_faculty=$faculty_gv and"; $morong1="where DA.id_faculty=$faculty_gv";}
 if($_GET['id_faculty']){
 	$sql="select NDA.name as 'nameGroup', CN.name as 'nameFaculty', DA.*, SV.fullname from tbl_document DA inner join tbl_groupDoc NDA on DA.id_groupDoc=NDA.id inner join tbl_faculty CN on DA.id_faculty=CN.id inner join tbl_student SV on SV.studentID=DA.studentID where $morong DA.studentID in (select studentID from tbl_student where id_faculty=$_GET[id_faculty]) order by DA.id desc";

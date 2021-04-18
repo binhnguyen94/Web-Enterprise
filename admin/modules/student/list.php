@@ -9,6 +9,7 @@
 			<input type="button" value="Print" class="button">
 		</a>
 	</form>
+	
 </div>
 <table>
 	<tr>
@@ -22,8 +23,12 @@
 	</tr>	
 
 <?php
-$sql="select * from tbl_student order by studentID desc";
-$qr=mysql_query($sql);
+if($_GET['name']){
+	$name = $db -> escape_string($_GET['name']);
+	$sql= $db -> query("select * from tbl_student where '%{$name}%' like '%{$name}%' ");
+}
+else $sql="select * from tbl_student order by studentID desc";
+$qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 $i=0;
 while ($kq=mysql_fetch_array($qr)) {
 	$i++;
@@ -39,7 +44,3 @@ while ($kq=mysql_fetch_array($qr)) {
 }
 ?>
 </table>
-<?php 
-	$name = mysql_real_escape_string($_REQUEST['name']);    
-	$sql = "SELECT * FROM tbl_student WHERE Description LIKE '%".$name."%'";
-?>
