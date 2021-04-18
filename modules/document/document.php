@@ -44,12 +44,12 @@
 		<ul>
 		<table border="1" width="100%" cellspacing="0">
 			<tr>
-				<td class='tieudeketqua'>No</td>
-				<td class='tieudeketqua'>Group Document</td>
-				<td class='tieudeketqua'>Faculty</td>
-				<td class='tieudeketqua'>Title</td>
-				<td class='tieudeketqua'>Upload date</td>
-				<td class='tieudeketqua'>Status</td>
+				<td class='titleResult'>No</td>
+				<td class='titleResult'>Group Document</td>
+				<td class='titleResult'>Faculty</td>
+				<td class='titleResult'>Title</td>
+				<td class='titleResult'>Upload date</td>
+				<td class='titleResult'>Status</td>
 			</tr>
 		<?php
 			$sql="select NDA.name as 'nameGroup', CN.name as 'nameFaculty', DA.* from tbl_document DA inner join tbl_groupDoc NDA on DA.id_groupDoc=NDA.id inner join tbl_faculty CN on DA.id_faculty=CN.id where DA.studentID='$_SESSION[studentID]' order by DA.id desc ";

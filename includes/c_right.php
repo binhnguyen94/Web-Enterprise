@@ -2,10 +2,7 @@
 	<div class="main">
 	<?php
 		switch ($_GET['act']) {
-			case 'listDocument':
-				require_once("modules/listDocument/listDoc.php");
-				break;
-			case 'documentDetail':
+			case 'detailDoc':
 				require_once("modules/listDocument/detailDoc.php");
 				break;
 			case 'updateAccount':
