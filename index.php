@@ -37,8 +37,8 @@
                 <h3>Search Document</h3>
                 <div style="padding-top:3px">
                     <form method="get" action="index.php">
-                        <input type="hidden" name="act" value="document" />
-                        <input name="key" placeholder='Search Keyword' class='text-formlogin' id="searchFile"/><br/>
+                        <input type="hidden" name="act" value="listDoc" />
+                        <input name="key" placeholder='Search Keyword' class='text-formlogin'/><br/>
                         <center><input value=" Search " type="submit" class='button-form'></center>
                     </form>
                 </div>
