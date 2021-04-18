@@ -9,10 +9,10 @@
 			$qr1=mysql_query($sql1);
 			while ($kq=mysql_fetch_array($qr1)) {
 				echo "<li>";
-					echo "<a href='?act=documentDetail&id=$kq[id]'>
+					echo "<a href='?act=detailDoc&id=$kq[id]'>
 						<p class='bg_title'><img src='upload/$kq[image]'/></p>";
 					echo "</a>";
-					echo "<a href='?act=documentDetail&id=$kq[id]'><h2>$kq[title]</h2></a>";
+					echo "<a href='?act=detailDoc&id=$kq[id]'><h2>$kq[title]</h2></a>";
 				echo "</li>";
 			}
 			if(isset($_POST['Search'])){
