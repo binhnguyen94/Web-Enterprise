@@ -1,13 +1,18 @@
 <div class="content-box-header">
+	<?php if($_SESSION['roles']=="Admin" || $_SESSION['roles']=="Coordinator"){ ?>
 	<h3>List Document</h3>
+	<?php } ?>
 	<form>
+		<?php if($_SESSION['roles']=="Admin" || $_SESSION['roles']=="Coordinator"){ ?>
 		<input type="hidden" name="act" value="document" />
 		<input placeholder='Enter name document' name="name" id="searchFile"/>
 		<input type="submit" value="Search" class="button">
+		<?php } ?>
 		<a target="_blank" href="printDocument.php?"><input type="button" value="Print" class="button"></a>
 		<a target="_blank" href="downloadzip.php?"><input type="button" value="download zip" class="button"></a>
 	</form>
 </div>
+<?php if($_SESSION['roles']=="Admin" || $_SESSION['roles']=="Coordinator"){ ?>
 <table>
 	<tr>
 		<td>No</td>
@@ -21,6 +26,7 @@
 		<td>Function</td>
 		<td>Evaluation</td>
 	</tr>
+	<?php } ?>
 <?php
 $faculty_gv=$_SESSION['faculty_gv'];
 if($_SESSION['roles']=="Admin" || $_SESSION['roles']=="Coordinator"){$morong=" "; $morong1="";}
