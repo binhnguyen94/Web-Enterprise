@@ -2,7 +2,7 @@
 	<h3>List Document</h3>
 	<form>
 		<input type="hidden" name="act" value="document" />
-		<input placeholder='Enter name document' name="name"/>
+		<input placeholder='Enter name document' name="name" id="searchFile"/>
 		<input type="submit" value="Search" class="button">
 		<a target="_blank" href="printDocument.php?"><input type="button" value="Print" class="button"></a>
 		<a target="_blank" href="downloadzip.php?"><input type="button" value="download zip" class="button"></a>
@@ -37,6 +37,7 @@ else{
 $document = $_SESSION['image'];
 $qr=mysql_query($sql." limit $GLOBALS[vtbd], $GLOBALS[limit]");
 $i=0;
+ob_start();
 while ($kq=mysql_fetch_array($qr)) {
 	$i++;
 	echo "<tr>";
@@ -62,7 +63,40 @@ while ($kq=mysql_fetch_array($qr)) {
 			echo "<td><input name='evaluation".$kq[id]."' class='text-form'></td>";
 	echo "</tr>";
 }
+
+	if(isset($_POST['Search'])){
+		ob_end_clean();
+		ob_start();
+		$sf = trim($_POST['searchFile']);
+		$qr = mysql_query("SELECT * FROM tbl_document where document like %sf%");
+		while ($kq=mysql_fetch_array($qr)) {
+			$i++;
+			echo "<tr>";
+				echo "<td>$i</td>";
+				echo "<td>".$kq['nameGroup']."</td>";
+				echo "<td>".$kq['nameFaculty']."</td>";
+				echo "<td>".$kq['studentID']."</td>";
+				echo "<td>".$kq['fullname']."</td>";
+				echo "<td><a href='../upload/$kq[document]' target='_blank'>".$kq['title']."</a></td>";
+				echo "<td>".$kq['uploadDate']."</td>";
+				echo "<td>".$kq['status'];
+				if($kq['status']!="Waiting"){
+					$tv="select fullname from tbl_admin where adminID='$kq[adminID]'";
+					$tv1=mysql_query($tv);
+					$tv2=mysql_fetch_array($tv1);
+					echo " ($tv2[fullname])</td><td>";
+				}
+				else{
+					echo "</td>";
+					echo "<td>[<a href='?act=document&mod=approvedDoc&id=$kq[id]&status=Approved'>Approved</a>] | [<a href='?act=document&mod=approvedDoc&id=$kq[id]&status=Unapproved'>Unapproved</a>] | ";
+				}
+					echo "[<a href='?act=document&mod=delete&id=$kq[id]' onclick='return checkDel()'>Delete</a>] | [<a href='?act=document&mod=seeSummary&id=$kq[id]'>View</a>]</td>";
+					echo "<td><input name='evaluation".$kq[id]."' class='text-form'></td>";
+			echo "</tr>";
+		}
+	}
 ?>
+
 </table>
 <?php 
 	if($_GET['id_faculty']) pageDivider("select count(*) from tbl_document where $morong studentID in (select studentID from tbl_student where id_faculty=$_GET[id_faculty])"); 

@@ -38,7 +38,7 @@
                 <div style="padding-top:3px">
                     <form method="get" action="index.php">
                         <input type="hidden" name="act" value="document" />
-                        <input name="key" placeholder='Search Keyword' class='text-formlogin'/><br/>
+                        <input name="key" placeholder='Search Keyword' class='text-formlogin' id="searchFile"/><br/>
                         <center><input value=" Search " type="submit" class='button-form'></center>
                     </form>
                 </div>
