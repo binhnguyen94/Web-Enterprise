@@ -16,9 +16,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
---
--- Database: `quanlydoan_tailieu`
---
 
 -- --------------------------------------------------------
 
@@ -99,77 +96,10 @@ CREATE TABLE IF NOT EXISTS `tbl_admin` (
 
 INSERT INTO `tbl_admin` (`adminID`, `password`, `id_faculty`, `fullname`, `dob`, `phoneNum`, `email`, `roles`) VALUES
 ('admin', 'e10adc3949ba59abbe56e057f20f883e', 1, 'Nguyễn Văn Duy', '1990-08-06', '0986333920', 'giaovien@gmail.com', 'Admin'),
-('giaovien', 'e10adc3949ba59abbe56e057f20f883e', 1, 'Nguyễn Đức Anh', '1989-08-07', '01234213622', 'ducanh@gmail.com', 'Coordinator'),
-('binh', 'e10adc3949ba59abbe56e057f20f883e', 2, 'Nguyễn Thái Bình', '1994-03-20', '0983465722', 'ntbinh200394@gmail.com', 'Marketing Manager'),
-('Thuong', 'e10adc3949ba59abbe56e057f20f883e', 4, 'Poly Dương', '1997-02-09', '0983726283', 'polyduong@gmail.com', 'Marketing Manager');
+('coordinator', 'e10adc3949ba59abbe56e057f20f883e', 1, 'Nguyễn Đức Anh', '1989-08-07', '01234213622', 'ducanh@gmail.com', 'Coordinator'),
+('manager', 'e10adc3949ba59abbe56e057f20f883e', 2, 'Nguyễn Thái Bình', '1994-03-20', '0983465722', 'ntbinh200394@gmail.com', 'Marketing Manager');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_hedaotao`
---
-
--- CREATE TABLE IF NOT EXISTS `tbl_hedaotao` (
---   `id` int(11) NOT NULL AUTO_INCREMENT,
---   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
---   PRIMARY KEY (`id`)
--- ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
-
--- --
--- -- Dumping data for table `tbl_hedaotao`
--- --
-
--- INSERT INTO `tbl_hedaotao` (`id`, `name`) VALUES
--- (1, 'Đại học chính quy'),
--- (2, 'Cao đẳng chính quy'),
--- (3, 'Liên thông CĐ - ĐH'),
--- (4, 'Liên thông TC - ĐH'),
--- (5, 'Tại chức');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_khoahoc`
---
-
--- CREATE TABLE IF NOT EXISTS `tbl_khoahoc` (
---   `id` int(11) NOT NULL AUTO_INCREMENT,
---   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
---   PRIMARY KEY (`id`)
--- ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
-
--- --
--- -- Dumping data for table `tbl_khoahoc`
--- --
-
--- INSERT INTO `tbl_khoahoc` (`id`, `name`) VALUES
--- (1, 'Khóa 1'),
--- (2, 'Khóa 2'),
--- (3, 'Khóa 3');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_lophoc`
---
-
--- CREATE TABLE IF NOT EXISTS `tbl_lophoc` (
---   `id` int(11) NOT NULL AUTO_INCREMENT,
---   `id_hedaotao` int(11) NOT NULL,
---   `id_khoahoc` int(11) NOT NULL,
---   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
---   PRIMARY KEY (`id`)
--- ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
-
--- --
--- -- Dumping data for table `tbl_lophoc`
--- --
-
--- INSERT INTO `tbl_lophoc` (`id`, `id_hedaotao`, `id_khoahoc`, `name`) VALUES
--- (1, 1, 1, 'Khoa học máy tính 1'),
--- (2, 1, 1, 'Khoa học máy tính 2'),
--- (3, 1, 1, 'Khoa học máy tính 4');
-
+-- 
 -- --------------------------------------------------------
 
 --
@@ -192,25 +122,6 @@ INSERT INTO `tbl_groupDoc` (`id`, `name`) VALUES
 (3, 'Programming'),
 (4, 'Java');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_nhomtailieu`
---
-
--- CREATE TABLE IF NOT EXISTS `tbl_nhomtailieu` (
---   `id` int(11) NOT NULL AUTO_INCREMENT,
---   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
---   PRIMARY KEY (`id`)
--- ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
-
--- --
--- -- Dumping data for table `tbl_nhomtailieu`
--- --
-
--- INSERT INTO `tbl_nhomtailieu` (`id`, `name`) VALUES
--- (1, 'Lập trình PHP'),
--- (2, 'Lập trình Winform');
 
 -- --------------------------------------------------------
 
@@ -238,30 +149,3 @@ INSERT INTO `tbl_student` (`studentID`, `password`, `fullname`, `id_faculty`, `d
 ('1131060489', '615ad206666f8086103305b8f77173f4', 'Nguyễn Thị Thắm', 1, '1994-08-07', '0988934888', 'thitham@gmail.com');
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `tbl_tailieu`
---
-
--- CREATE TABLE IF NOT EXISTS `tbl_tailieu` (
---   `id` int(11) NOT NULL AUTO_INCREMENT,
---   `id_nhomtailieu` int(11) NOT NULL,
---   `id_faculty` int(11) NOT NULL,
---   `adminID` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
---   `tentailieu` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
---   `hinhanh` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
---   `noidung` longtext COLLATE utf8_unicode_ci NOT NULL,
---   PRIMARY KEY (`id`)
--- ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
-
--- --
--- -- Dumping data for table `tbl_tailieu`
--- --
-
--- INSERT INTO `tbl_tailieu` (`id`, `id_nhomtailieu`, `id_faculty`, `adminID`, `tentailieu`, `hinhanh`, `noidung`) VALUES
--- (1, 1, 1, 'giaovien', 'Giáo trình PHP', '5663f221-d9d9d09aa7.jpg', 'ssssssssssssssssss'),
--- (3, 1, 1, 'giaovien', 'Hướng dẫn tạo forum', 'book-xxl.png', 'ssssssssssss');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
