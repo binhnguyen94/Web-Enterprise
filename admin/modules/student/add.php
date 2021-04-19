@@ -3,10 +3,10 @@
 </div>
 <form method="post" action="" enctype="multipart/form-data">
 <table>
-	<tr>
+	<!-- <tr>
 		<td>Import a list from excel :</td>
 		<td><input type="file" class="medium-input" name="file" /></td>
-	</tr>
+	</tr> -->
 	<tr>
 		<td>Username(*) :</td>
 		<td><input class="medium-input" name="username" /></td>
