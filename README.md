@@ -34,4 +34,5 @@ o Number of contributors within each Faculty for each academic year.
 - Exception reports
 o Contributions without a comment.
 o Contributions without a comment after 14 days.
+
 After finishing a coursewwork, we still lack of an email notification function. We will try our best for other project better later beacause of some experiences in group work and new techhnology.
